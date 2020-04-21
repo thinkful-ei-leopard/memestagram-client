@@ -4,7 +4,7 @@ import './Button.css'
 
 const Button = React.forwardRef(({ className, ...props }, ref) => {
     return (
-        <button classname={cx('Button', className)} ref={ref} {...props} />
+        <button className={cx('Button', className)} ref={ref} {...props} />
     )
 })
 
