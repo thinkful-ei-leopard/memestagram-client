@@ -43,7 +43,7 @@ export default class NavBar extends React.Component {
     return(
       <header>
         <nav>
-          {/* <h1 className='home-link'>
+          <h1 className='home-link'>
             {TokenService.hasAuthToken()
               ? <Link to='/dashboard'> MEMESTAGRAM </Link>
               : <Link to='/'> MEMESTAGRAM </Link>
@@ -58,7 +58,7 @@ export default class NavBar extends React.Component {
           {TokenService.hasAuthToken()
             ? <Link to='/settings'> <div className='nav-bar-user-image'> <img src={this.context.userImage} alt='user image'></img> </div> </Link>
             : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
-          } */}
+          }
         </nav>
       </header>
     )
