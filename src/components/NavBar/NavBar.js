@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//double check where/what context is!
 //Auth tokens dont exist yet (4/21 @ 12:45)
 import TokenService from '../../services/token-service'
-import UserContext from '../../contexts/UserContext'
+import MemeContext from '../../contexts/MemeContext'
 import './NavBar.css'
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
 
-  static contextType = UserContext
+  static contextType = MemeContext
 
   handleLogoutClick = () => {
     this.context.processLogout()
@@ -17,9 +16,6 @@ class NavBar extends React.Component {
   renderLogoutLink() {
     return (
       <div className='nav-right'>
-        <span>
-          {this.context.user.name}
-        </span>
         <div>
           <Link
             onClick={this.handleLogoutClick}
@@ -47,7 +43,7 @@ class NavBar extends React.Component {
     return(
       <header>
         <nav>
-          <h1 className='home-link'>
+          {/* <h1 className='home-link'>
             {TokenService.hasAuthToken()
               ? <Link to='/dashboard'> MEMESTAGRAM </Link>
               : <Link to='/'> MEMESTAGRAM </Link>
@@ -62,7 +58,7 @@ class NavBar extends React.Component {
           {TokenService.hasAuthToken()
             ? <Link to='/settings'> <div className='nav-bar-user-image'> <img src={this.context.userImage} alt='user image'></img> </div> </Link>
             : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
-          }
+          } */}
         </nav>
       </header>
     )
