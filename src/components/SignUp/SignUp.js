@@ -13,14 +13,14 @@ export default class SignUp extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        const { name, username, password } = ev.target
+        const { profileName, username, password } = ev.target
         AuthApiService.postUser({
-            name: name.value,
+            profileName: profileName.value,
             username: username.value,
             password: password.value,
           })
             .then(user => {
-              name.value = ''
+              profileName.value = ''
               username.value = ''
               password.value = ''
               this.props.onSignUpSuccess()
