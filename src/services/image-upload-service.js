@@ -12,3 +12,5 @@ const ImageUploadService = {
       })
   }
 }
+
+export default ImageUploadService
