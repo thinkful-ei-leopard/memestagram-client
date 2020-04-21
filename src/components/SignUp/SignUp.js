@@ -6,7 +6,7 @@ import Button from '../Button/Button'
 
 export default class SignUp extends Component { 
     static defaultProps = {
-        onRegistrationSuccess: () => { }
+        onSignUpSuccess: () => { }
         }
     state = { error: null }
     firstInput = React.createRef()
@@ -23,7 +23,7 @@ export default class SignUp extends Component {
               name.value = ''
               username.value = ''
               password.value = ''
-              this.props.onRegistrationSuccess()
+              this.props.onSignUpSuccess()
             })
             .catch(res => {
               this.setState({ error: res.error })
