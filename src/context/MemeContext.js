@@ -4,10 +4,12 @@ import TokenService from '../services/token-service'
 
 const MemeContext = React.createContext({
   user: {},
+  posts: [],
   error: null,
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
+  setPosts: () => {},
   processLogin: () => {},
   processLogout: () => {},
 })
@@ -56,6 +58,10 @@ export class MemeProvider extends Component {
     this.setState({ user })
   }
 
+  setPosts = posts => {
+    this.setState({ posts })
+  }
+
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
@@ -91,8 +97,10 @@ export class MemeProvider extends Component {
   render() {
     const value = {
       user: this.state.user,
+      posts: this.state.posts,
       error: this.state.error,
       setError: this.setError,
+      setPosts: this.setPosts,
       clearError: this.clearError,
       setUser: this.setUser,
       processLogin: this.processLogin,
