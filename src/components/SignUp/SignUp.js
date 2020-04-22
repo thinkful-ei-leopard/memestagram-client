@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
+import Image_Upload from '../Image-Upload/Image-Upload'
+
+// import Spinner from '../Image-Upload/Spinner'
+// import Images from '../Image-Upload/Images'
 
 export default class SignUp extends Component { 
     static defaultProps = {
@@ -37,10 +41,13 @@ export default class SignUp extends Component {
     render() {
        const { error } = this.state
         return (
-            <form
+        <form
         className='form'
         onSubmit={this.handleSubmit}
       >
+        <div>
+          <Image_Upload />
+        </div>
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
@@ -90,4 +97,3 @@ export default class SignUp extends Component {
     }
 }
 
-export default SignUp

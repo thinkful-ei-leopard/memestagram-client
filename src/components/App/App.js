@@ -4,6 +4,7 @@ import Landing from '../Landing/Landing';
 import './App.css';
 import DashboardPage from '../Dashboard/DashboardPage';
 import PhotoView from '../PhotoView/PhotoView';
+import SignUp from '../SignUp/SignUp'
 
 export default class App extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class App extends Component {
      <Route exact path='/dashboard' component={DashboardPage}/>
      <Route exact path='/photo' component={PhotoView}/>
      {/*<Route path='/login' component={Login}/>*/}
-     {/*<Route path='/register' component={RegisterationPage}/>*/}
+     <Route path='/register' component={SignUp}/>
      {/*<Route component={NotFound}/>*/}
      </Switch>
     </main>
