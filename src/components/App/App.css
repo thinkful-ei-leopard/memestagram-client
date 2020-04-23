@@ -1,4 +1,6 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand");
+@import url("https://fonts.googleapis.com/css2?family=Changa+One");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500");
 *{
   box-sizing: border-box;
 }
@@ -11,6 +13,14 @@ body{
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  background-color: #042f4b;
+  color:#fff6da;
+  font-size: 16px;
+}
+
+header{
+  font-family:'Shrikhand', cursive;
+  font-size: 25px;
 }
 
 

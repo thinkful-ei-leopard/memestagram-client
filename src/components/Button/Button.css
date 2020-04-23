@@ -1,0 +1,12 @@
+button{
+    margin: 20px;
+    display: inline-block;
+    border: 2px solid #fbc99d;
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: #fbc99d;
+    font-size: 18px;
+    font-family: 'Changa One', cursive;
+    background-color: #042f4b;
+}
+
