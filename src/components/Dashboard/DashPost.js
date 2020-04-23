@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import MemeContext from '../../context/MemeContext'
-import PostService from '../../services/posts-service'
+import PostsService from '../../services/posts-service'
 
 export default class DashboardPage extends Component {
     state = {
         count: 0,
-        comment: 0,
+        posts: [],
         like: '🤍'
     }
 
     static contextType = MemeContext
 
     componentDidMount(){
-        PostService.getPosts()
-            .then(this.context.setPosts)
+        this.context.clearError()
+        PostsService.getPosts()
+            .then(res => this.setState({posts: res}))
             .catch(this.context.setError)
     }
 
@@ -33,10 +34,8 @@ export default class DashboardPage extends Component {
     }
    }
     
-   //!don't know what posts objects will look like exactly
-   //is there a comment counter? if not think of a way to count the # of comments
    renderPosts() {
-        const posts = this.context.posts
+        const posts = this.state.posts
 
         const postsArr = []
         if(!Array.isArray(posts) || !posts.length) {
@@ -49,21 +48,23 @@ export default class DashboardPage extends Component {
             for(let i = 0; i < posts.length; i++) {
                 postsArr.push(
                     <div className='posts'>  
-                        <img src={posts.userImg} alt='user'></img>
-                        <p>{posts.username}</p>
+                        {/* <img src={posts.userImg} alt='user'></img> */}
+                        <p>username</p>
                         <Link to='/photo'>
-                            <img src={posts.photo} alt='meme'></img>
+                            <img src={posts[i].memeImg} alt='meme'></img>
                         </Link>
-                        <div>
-                            <span role='img' aria-label='heart' onClick={() =>this.addLike()}>{posts.like}</span>like: {posts.count}
+                        <div className='post-content'>
+                            <span role='img' aria-label='heart' onClick={() =>this.addLike()}>{this.state.like}</span>likes: {posts[i].likes}
                             <span>comments: 123</span>
-                            <p>comments</p>
+                            <p>Username</p><p>{posts[i].description}</p>
                         </div>
-                        <button >Comment</button>
+                        <Link to='/photo'>Comment</Link>
                     </div>
                 )
             }
         }
+
+        return postsArr
    }
     
     render() {
