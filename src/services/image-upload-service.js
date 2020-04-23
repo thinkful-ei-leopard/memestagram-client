@@ -1,7 +1,7 @@
 import config from '../config'
 
 const ImageUploadService = {
-  postProfileImage() {
+  postProfileImage(formData) {
     return fetch(`${config.API_ENDPOINT}/imageupload`, {
       method: 'POST',
       body: formData 
