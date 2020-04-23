@@ -3,6 +3,7 @@ import Buttons from './Upload-Button'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
 import  API_ENDPOINT from '../../config'
+import './ImageUpload.css'
 
 export default class Image_Upload extends Component {
   
