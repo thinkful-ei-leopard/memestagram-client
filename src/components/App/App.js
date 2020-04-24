@@ -11,16 +11,16 @@ export default class App extends Component {
   render() {
     return (
       <main className="App">
-     <header><h1>Memestagram</h1></header>
-     <Switch>
-     <Route exact path='/' component={Landing}/>
-     <Route exact path='/dashboard' component={DashboardPage}/>
-     <Route exact path='/photo' component={PhotoView}/>
-     <Route path='/login' component={Login}/>
-     <Route path='/register' component={SignUp}/>
-     {/*<Route component={NotFound}/>*/}
-     </Switch>
-    </main>
+        <header><h1>Memestagram</h1></header>
+        <Switch>
+          <Route exact path='/' component={Landing}/>
+          <Route exact path='/dashboard' component={DashboardPage}/>
+          <Route exact path='/photo' component={PhotoView}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/register' component={SignUp}/>
+        {/*<Route component={NotFound}/>*/}
+        </Switch>
+      </main>
     )
   }
 }
