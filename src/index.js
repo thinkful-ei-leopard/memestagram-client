@@ -6,7 +6,7 @@ import App from './components/App/App';
 import './index.css';
 
 ReactDOM.render(
-  
+
   <BrowserRouter>
     <MemeProvider>
       <App />
