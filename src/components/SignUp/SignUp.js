@@ -86,13 +86,12 @@ export default class SignUp extends Component {
         <footer className='form-footer'>
           <Button type='submit' className='form-footer-button'>
             Sign up
+            
           </Button>
           {' '}
           <Link to='/login' className='form-footer-link'>Already have an account?</Link>
         </footer>
-      </form>
-            
-            
+      </form>            
         )
     }
 }
