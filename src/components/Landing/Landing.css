@@ -7,8 +7,18 @@
     border-radius: 5px;
     padding: 10px;    
 }
+a >.memes{
+    display: none;
+}
+
 a:hover{
     color:#ed1250;
+}
+img{
+    height:150px;
+}
+a:hover> .memes{
+   display:block;
 }
 .des{
     font-size: 20px;
