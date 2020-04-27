@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './PhotoView.css'
 import { Input, Label } from '../Form/Form'
 import Button from '../Button/Button'
+import NavBar from '../NavBar/NavBar'
 import CommentsService from '../../services/comment-service'
 import PostsService from '../../services/posts-service'
 import MemeContext from '../../context/MemeContext'
@@ -47,6 +48,7 @@ addComment(event){
         const {singlePost, comments}=this.state
         return (
             <div>
+                <NavBar />
                 <div className='MemePost'>{singlePost.memeInng}</div>
                 <h3>{singlePost.username}</h3>
                 <p>{singlePost.description}</p>

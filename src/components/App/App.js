@@ -11,7 +11,6 @@ export default class App extends Component {
   render() {
     return (
       <main className="App">
-        <header><h1>Memestagram</h1></header>
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/dashboard' component={DashboardPage}/>
