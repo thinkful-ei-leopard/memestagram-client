@@ -48,15 +48,22 @@ export default class DashboardPage extends Component {
             for(let i = 0; i < posts.length; i++) {
                 postsArr.push(
                     <div className='posts'>  
-                        {/* <img src={posts.userImg} alt='user'></img> */}
-                        <p>username</p>
-                        <Link to='/photo'>
-                            <img src={posts[i].memeImg} alt='meme'></img>
+                        <div className='upper-container'>
+                            <div className='image-cropper'>
+                                <img src={posts[i].userImg} alt='user' className='user-img'></img>
+                            </div>
+                            <p className='username'>{posts[i].username}</p>
+                        </div>
+                        <Link to={`/posts/${posts[i].id}`}>
+                            <img src={posts[i].memeImg} alt='meme' className='meme'></img>
                         </Link>
                         <div className='post-content'>
-                            <span role='img' aria-label='heart' onClick={() =>this.addLike()}>{this.state.like}</span>likes: {posts[i].likes}
+                            <span role='img' aria-label='heart' onClick={() =>this.addLike()} className='heart'>{this.state.like}</span>likes: {posts[i].likes}
                             <span>comments: 123</span>
-                            <p>Username</p><p>{posts[i].description}</p>
+                            <div className='description-contianer'>
+                                <p className='username'>{posts[i].username}</p>
+                                <p className='description'>{posts[i].description}</p>
+                            </div>
                         </div>
                         <Link to='/photo'>Comment</Link>
                     </div>
