@@ -8,6 +8,7 @@ export default class Landing extends Component {
     render() {
         return (
         <div>
+            <h1>Memestagram</h1>
             <div className='title-card'>
                 <div className='introduction'>
                 <p className='slogan'>Where I can share Memes? <span className='meme'>Memestagram!</span></p>

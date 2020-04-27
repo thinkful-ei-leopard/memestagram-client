@@ -1,0 +1,56 @@
+.posts {
+  background-color: white;
+  color: #042f4b;
+  margin: 5%;
+}
+
+.image-cropper {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-img {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
+}
+
+.upper-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.upper-container > .username {
+  margin-left: 20px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.heart:hover {
+  cursor: pointer;
+}
+
+.description-contianer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description-contianer > .username {
+  margin: 0 10px;
+}
+
+.meme {
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
