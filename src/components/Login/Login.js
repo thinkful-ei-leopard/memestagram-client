@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
 class Login extends Component{
-
+  static defaultProps={
+    onLoginSuccess:()=>{}
+  }
   render() {
     
     return (
