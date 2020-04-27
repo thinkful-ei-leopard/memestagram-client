@@ -14,7 +14,7 @@ export default class App extends Component {
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/dashboard' component={DashboardPage}/>
-          <Route exact path='/photo' component={PhotoView}/>
+          <Route path='/posts' component={PhotoView}/>
           <Route path='/login' component={Login}/>
           <Route path='/register' component={SignUp}/>
         {/*<Route component={NotFound}/>*/}

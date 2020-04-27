@@ -54,7 +54,7 @@ export default class DashboardPage extends Component {
                             </div>
                             <p className='username'>{posts[i].username}</p>
                         </div>
-                        <Link to='/photo'>
+                        <Link to={`/posts/${posts[i].id}`}>
                             <img src={posts[i].memeImg} alt='meme' className='meme'></img>
                         </Link>
                         <div className='post-content'>
