@@ -1,0 +1,20 @@
+.user-posts-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.user-posts {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-meme {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
+}
