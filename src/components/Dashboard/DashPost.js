@@ -33,6 +33,8 @@ export default class DashboardPage extends Component {
         })   
     }
    }
+
+
     
    renderPosts() {
         const posts = this.state.posts

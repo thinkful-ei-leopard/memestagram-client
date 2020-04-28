@@ -27,6 +27,19 @@ const PostsService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
       )
+  },
+  getUserPosts(){
+    return fetch(`${config.API_ENDPOINT}/posts/users/:user_id`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(res =>
+        (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+      )
   }
 }
 

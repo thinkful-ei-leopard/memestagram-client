@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
+import NavBar from '../NavBar/NavBar'
+
+import './UserPage.css'
 
 export default class UserPage extends React.Component {
   state = {
@@ -9,9 +12,11 @@ export default class UserPage extends React.Component {
     like: '🤍'
   }
 
+  static contextType = MemeContext
+
   componentDidMount(){
     this.context.clearError()
-    PostsService.getPosts()
+    PostsService.getUserPosts()
       .then(res => this.setState({posts: res}))
       .catch(this.context.setError)
   }
@@ -30,7 +35,24 @@ export default class UserPage extends React.Component {
     }
   }
 
-   renderPosts() {
+  renderUserInfo() {
+    const posts = this.state.posts
+    
+    if(!Array.isArray(posts) || !posts.length){
+      return <p>Loading...</p>
+    } else {
+      return (
+        <div>
+          <div className='image-cropper'>
+            <img src={posts[0].userImg} alt='user' className='user-img'></img>
+          </div>
+            <p className='username'>{posts[0].username}</p>
+        </div>
+        )
+    }
+  }
+  
+  renderPosts() {
     const posts = this.state.posts
 
     const postsArr = []
@@ -43,37 +65,26 @@ export default class UserPage extends React.Component {
     } else {
       for(let i = 0; i < posts.length; i++) {
         postsArr.push(
-          <div className='posts'>  
-            <div className='upper-container'>
-              <div className='image-cropper'>
-                <img src={posts[i].userImg} alt='user' className='user-img'></img>
-              </div>
-              <p className='username'>{posts[i].username}</p>
-            </div>
-              <Link to={`/posts/${posts[i].id}`}>
-                <img src={posts[i].memeImg} alt='meme' className='meme'></img>
-              </Link>
-            <div className='post-content'>
-              <span role='img' aria-label='heart' onClick={() =>this.addLike()} className='heart'>{this.state.like}</span>likes: {posts[i].likes}
-              <span>comments: 123</span>
-              <div className='description-contianer'>
-                <p className='username'>{posts[i].username}</p>
-                <p className='description'>{posts[i].description}</p>
-              </div>
-            </div>
-              <Link to='/photo'>Comment</Link>
+          <div className='user-posts'>  
+            <Link to={`/posts/${posts[i].id}`}>
+              <img src={posts[i].memeImg} alt='meme' className='user-meme'></img>
+            </Link>
           </div>
             )
         }
     }
 
     return postsArr
-}
+  }
 
 render() {
   return (
     <div>
-      {this.renderPosts()}
+      <NavBar/>
+      {this.renderUserInfo()}
+      <div className='user-posts-container'>
+        {this.renderPosts()}
+      </div>
     </div>
   )
 }
