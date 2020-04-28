@@ -4,6 +4,7 @@ import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
 import ImageUpload from '../Image-Upload/Image-Upload'
+import ImageUploadService from '../../services/image-upload-service'
 
 // import Spinner from '../Image-Upload/Spinner'
 // import Images from '../Image-Upload/Images'
@@ -22,7 +23,10 @@ export default class SignUp extends Component {
             name: name.value,
             username: username.value,
             password: password.value,
-          })
+          }) 
+          ImageUploadService.postProfileImage({
+              
+            })
             .then(user => {
               name.value = ''
               username.value = ''
@@ -32,6 +36,7 @@ export default class SignUp extends Component {
             .catch(res => {
               this.setState({ error: res.error })
             })
+           
         }
       
         componentDidMount() {
