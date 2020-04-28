@@ -52,7 +52,9 @@ export default class DashboardPage extends Component {
                             <div className='image-cropper'>
                                 <img src={posts[i].userImg} alt='user' className='user-img'></img>
                             </div>
-                            <p className='username'>{posts[i].username}</p>
+                            <Link to={`/users/${posts[i].user_id}`}>
+                                <p className='username'>{posts[i].username}</p>
+                            </Link>
                         </div>
                         <Link to={`/posts/${posts[i].id}`}>
                             <img src={posts[i].memeImg} alt='meme' className='meme'></img>
