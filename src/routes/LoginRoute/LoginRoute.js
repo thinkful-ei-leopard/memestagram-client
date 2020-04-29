@@ -23,9 +23,7 @@ class LoginRoute extends Component {
     return (
       <section className='login-title'>
         <h2>Login</h2>
-        <Login
-          onLoginSuccess={this.handleLoginSuccess}
-        />
+        <Login onLoginSuccess={this.handleLoginSuccess}/>
       </section>
     );
   }
