@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
 import { Input, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
@@ -42,7 +43,6 @@ class Login extends Component{
     this.firstInput.current.focus()
   }
 
-
   render() {
     
     const { error } = this.state
@@ -55,6 +55,7 @@ class Login extends Component{
         <div className='login-input'>
           <Label htmlFor='login-username'> Username </Label>
           <Input ref={this.firstInput} id='login-username' name='username' required />
+
         </div>
         <div className='login-input'>
           <Label htmlFor='login-password'>Password</Label>

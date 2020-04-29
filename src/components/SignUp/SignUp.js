@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
-import Image_Upload from '../Image-Upload/Image-Upload'
+import ImageUpload from '../Image-Upload/Image-Upload'
 
 // import Spinner from '../Image-Upload/Spinner'
 // import Images from '../Image-Upload/Images'
@@ -17,14 +17,14 @@ export default class SignUp extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        const { profileName, username, password } = ev.target
+        const { name, username, password } = ev.target
         AuthApiService.postUser({
-            profileName: profileName.value,
+            name: name.value,
             username: username.value,
             password: password.value,
           })
             .then(user => {
-              profileName.value = ''
+              name.value = ''
               username.value = ''
               password.value = ''
               this.props.onSignUpSuccess()
@@ -46,7 +46,7 @@ export default class SignUp extends Component {
         onSubmit={this.handleSubmit}
       >
         <div>
-          <Image_Upload />
+          <ImageUpload />
         </div>
         <div role='alert'>
           {error && <p>{error}</p>}
@@ -86,13 +86,12 @@ export default class SignUp extends Component {
         <footer className='form-footer'>
           <Button type='submit' className='form-footer-button'>
             Sign up
+            
           </Button>
           {' '}
           <Link to='/login' className='form-footer-link'>Already have an account?</Link>
         </footer>
-      </form>
-            
-            
+      </form>            
         )
     }
 }

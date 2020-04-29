@@ -2,12 +2,25 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 //Auth tokens dont exist yet (4/21 @ 12:45)
 import TokenService from '../../services/token-service'
-import MemeContext from '../../contexts/MemeContext'
+import MemeContext from '../../context/MemeContext'
 import './NavBar.css'
 
 export default class NavBar extends React.Component {
 
+  state = {
+    count: 0,
+    user: [],
+  }
+
   static contextType = MemeContext
+
+  //!need to get the user 
+  // componentDidMount(){
+  //     this.context.clearError()
+  //     PostsService.getPosts()
+  //         .then(res => this.setState({posts: res}))
+  //         .catch(this.context.setError)
+  // }
 
   handleLogoutClick = () => {
     this.context.processLogout()
@@ -55,10 +68,10 @@ export default class NavBar extends React.Component {
             : this.renderLoginLink()
           }
 
-          {TokenService.hasAuthToken()
+          {/* {TokenService.hasAuthToken()
             ? <Link to='/settings'> <div className='nav-bar-user-image'> <img src={this.context.userImage} alt='user image'></img> </div> </Link>
             : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
-          }
+          } */}
         </nav>
       </header>
     )

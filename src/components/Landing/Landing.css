@@ -1,5 +1,56 @@
+
 .landbtn{
     margin: 20px;
     text-decoration: none;
     display: inline-block;
+    border: 2px solid #fbc99d;
+    border-radius: 5px;
+    padding: 10px;    
+}
+a >.memes{
+    display: none;
+}
+
+a:hover{
+    color:#ed1250;
+}
+img{
+    height:150px;
+}
+a:hover> .memes{
+   display:block;
+}
+.des{
+    font-size: 20px;
+}
+
+a {
+    color: #fbc99d;
+    font-size: 20px;
+    font-family: 'Changa One', cursive;
+    text-decoration: none;
+}
+
+.title-card{
+    height: 500px;
+    padding-top: 60px;
+    background-image: url("/meme.png");
+}
+
+.introduction{
+    max-width:700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff6da;
+    padding: 25px;
+    background-color: rgba(0,0,0,0.9);
+}
+.slogan{
+    color:#fff6da;
+    font-size: 25px;
+    font-family: 'Racing Sans One', cursive;
+}
+
+.meme{
+    padding-left: 5px;
 }

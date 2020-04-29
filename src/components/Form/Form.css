@@ -1,0 +1,12 @@
+form{
+    border: 3px solid ;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right:auto;
+    padding: 20px;
+}
+
+input{
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px;
+}
