@@ -3,8 +3,6 @@ import DashPost from './DashPost'
 import NavBar from '../NavBar/NavBar'
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
-
-
 import './Dashboard.css'
 
 export default class DashboardPage extends Component {
@@ -32,6 +30,7 @@ export default class DashboardPage extends Component {
             />
         )
     }
+
 
     render() {
         const { error } = this.state

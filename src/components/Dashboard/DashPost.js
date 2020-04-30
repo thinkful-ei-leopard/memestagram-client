@@ -3,9 +3,14 @@ import {Link} from 'react-router-dom';
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
 
-export default class DashboardPage extends Component {
+export default class DashPost extends Component {
 
-    state = {
+
+   static defaultProps={
+    handlePhotoView:()=>{ }
+   }
+      state = {         
+        count: 0,
         posts: [],
         heart: '🤍',
         likes: this.props.post.likes
@@ -37,6 +42,9 @@ export default class DashboardPage extends Component {
         })   
     }
    }
+handleClicked=()=>{
+    this.props.handlePhotoView()
+   }
 
 
    renderPost() {
@@ -61,7 +69,7 @@ export default class DashboardPage extends Component {
                     <span>comments: 123</span>
                     <div className='description-contianer'>
                         <p className='username'>{post.username}</p>
-                        <p className='description'>{post.description}</p>
+                        <p className='description'>{post.description}</p> 
                     </div>
                 </div>
                 <Link to='/photo'>Comment</Link>

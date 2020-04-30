@@ -15,8 +15,8 @@ const PostsService = {
         : res.json()
       )
   },
-  getOnePost(){
-    return fetch(`${config.API_ENDPOINT}/posts/:post_id`, {
+  getOnePost(postId){
+    return fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -28,8 +28,9 @@ const PostsService = {
         : res.json()
       )
   },
-  getUserPosts(){
-    return fetch(`${config.API_ENDPOINT}/posts/users/:user_id`, {
+
+  getUserPosts(userId){
+    return fetch(`${config.API_ENDPOINT}/posts/users/${userId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
