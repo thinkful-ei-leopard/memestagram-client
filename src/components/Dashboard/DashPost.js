@@ -4,8 +4,8 @@ import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
 
 export default class DashboardPage extends Component {
+
     state = {
-        count: 0,
         posts: [],
         like: '🤍'
     }
@@ -19,22 +19,31 @@ export default class DashboardPage extends Component {
             .catch(this.context.setError)
     }
 
-    //!need to post a like eventually
-    addLike() {
-    if(this.state.like === '🤍'){
-     this.setState({
-         like: '❤️',
-         count: this.state.count + 1
-     }) 
-    } else if(this.state.like === '❤️'){
+    renderLike(heart = '🤍') {
+        if(heart === '🤍') {
+            return '🤍'
+        } else if (heart === '❤️') {
+            return '❤️'
+        }
+    }
+
+    handleAddLike(post, e) {
+    if(e.target.checked === true){
+        const incLike = post.likes+1
+        console.log(incLike)
+        PostsService.addLike(post.id, post.likes + 1)
         this.setState({
-            like: '🤍',
-            count: this.state.count - 1
+            likes: post.likes + 1
+        }) 
+    } else if (e.target.checked === false) {
+        const decLike = post.likes
+        console.log(decLike)
+        PostsService.addLike(post.id, post.likes)
+        this.setState({
+            likes: decLike
         })   
     }
    }
-
-
     
    renderPosts() {
         const posts = this.state.posts
@@ -62,7 +71,10 @@ export default class DashboardPage extends Component {
                             <img src={posts[i].memeImg} alt='meme' className='meme'></img>
                         </Link>
                         <div className='post-content'>
-                            <span role='img' aria-label='heart' onClick={() =>this.addLike()} className='heart'>{this.state.like}</span>likes: {posts[i].likes}
+                            <label>
+                                <input type='checkbox' onChange={(e) => this.handleAddLike(posts[i], e)}/>
+                            </label>
+                            likes: {posts[i].likes}
                             <span>comments: 123</span>
                             <div className='description-contianer'>
                                 <p className='username'>{posts[i].username}</p>

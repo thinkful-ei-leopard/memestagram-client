@@ -40,6 +40,23 @@ const PostsService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
       )
+  },
+  addLike(id, likes) {
+    return fetch(`${config.API_ENDPOINT}/posts`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id,
+        likes: likes
+      })
+    })
+      .then(res => 
+        (!res.ok)
+          ? res.then(e => Promise.reject(e))
+          : res
+      )
   }
 }
 
