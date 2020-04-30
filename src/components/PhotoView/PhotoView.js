@@ -33,6 +33,7 @@ componentDidMount(){
         .then(res => this.setState({comments:res}))
         .catch(this.context.setError)  
         
+        
 }
 
 addComment(event){
@@ -66,7 +67,7 @@ addComment(event){
 }
 
     render() {
-        const {singlePost}=this.state
+        const {singlePost, comments}=this.state
         
         return (
             <div>
@@ -79,6 +80,7 @@ addComment(event){
                 </div>
                 <h3 className='user_name'>{singlePost.username}</h3>
                 <p className='user_name'>{singlePost.description}</p> 
+                <p>Total Comments: {comments.length}</p>
                 <div>{this.renderComments()}</div> 
                 <form onSubmit={this.addComment}>
                 <div className='postComment'>
