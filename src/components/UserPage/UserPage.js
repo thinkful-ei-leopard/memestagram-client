@@ -15,8 +15,9 @@ export default class UserPage extends React.Component {
   static contextType = MemeContext
 
   componentDidMount(){
+    const{ userId }=this.props.match.params
     this.context.clearError()
-    PostsService.getUserPosts()
+    PostsService.getUserPosts(userId)
       .then(res => this.setState({posts: res}))
       .catch(this.context.setError)
   }
