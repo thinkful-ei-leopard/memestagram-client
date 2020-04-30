@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
-
+import CommentsService from '../../services/comment-service';
 export default class DashboardPage extends Component {
    static defaultProps={
     handlePhotoView:()=>{ }
    } 
-      state = {
-          
+      state = {      
         count: 0,
         posts: [],
-        like: '🤍'
+        like: '🤍',
+        comments:[]
     }
 
     static contextType = MemeContext
@@ -45,7 +45,7 @@ export default class DashboardPage extends Component {
     
    renderPosts() {
         const posts = this.state.posts
-
+        const comments = this.state.comments
         const postsArr = []
         if(!Array.isArray(posts) || !posts.length) {
             postsArr.push(
@@ -56,6 +56,7 @@ export default class DashboardPage extends Component {
         } else {
             for(let i = 0; i < posts.length; i++) {
                 postsArr.push(
+                   
                     <div  key={posts[i].id} className='posts'>  
                         <div className='upper-container'>
                             <div className='image-cropper'>
@@ -69,8 +70,8 @@ export default class DashboardPage extends Component {
                             <img src={posts[i].memeImg} alt='meme' className='meme'  onClick={(e) => this.handleClicked(e)} ></img>
                         </Link>
                         <div className='post-content'>
-                            <span role='img' aria-label='heart' onClick={() =>this.addLike()} className='heart'>{this.state.like}</span>likes: {posts[i].likes}
-                            <span>comments: 123</span>
+                            <span role='img' aria-label='heart' onClick={() =>this.addLike()} className='heart'>{this.state.like}</span>likes:{posts[i].likes}
+                            <span>comments: </span>
                             <div className='description-contianer'>
                                 <p className='username'>{posts[i].username}</p>
                                 <p className='description'>{posts[i].description}</p>
