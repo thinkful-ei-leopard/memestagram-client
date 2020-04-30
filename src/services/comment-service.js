@@ -2,12 +2,12 @@ import config from '../config'
 import TokenService from './token-service';
 
 const CommentsService = {
-  getComment(){
-    return fetch(`${config.API_ENDPOINT}/comments`, {
+  getComment(postId){
+    return fetch(`${config.API_ENDPOINT}/comments/${postId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`
+        //'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>

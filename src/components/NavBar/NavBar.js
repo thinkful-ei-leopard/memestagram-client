@@ -72,6 +72,7 @@ export default class NavBar extends React.Component {
             ? <Link to='/settings'> <div className='nav-bar-user-image'> <img src={this.context.userImage} alt='user image'></img> </div> </Link>
             : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
           } */}
+          <Link to='/addPost'>Add Post</Link>
         </nav>
       </header>
     )
