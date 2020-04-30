@@ -6,10 +6,12 @@ import PostsService from '../../services/posts-service'
 export default class DashPost extends Component {
 
 
-   static defaultProps={
-    handlePhotoView:()=>{ }
+   static defaultProps = {
+    handlePhotoView: () => { },
+    handleUserView: () => { }
    }
-      state = {         
+    
+   state = {         
         count: 0,
         posts: [],
         heart: '🤍',
@@ -42,10 +44,15 @@ export default class DashPost extends Component {
         })   
     }
    }
-handleClicked=()=>{
-    this.props.handlePhotoView()
-   }
 
+    handleClicked = () => {
+        this.props.handlePhotoView()
+    }
+
+    handleUsernameClick = () => {
+        console.log('handleusername')
+        this.props.handleUserView()
+    }
 
    renderPost() {
         const { post } = this.props
@@ -56,7 +63,7 @@ handleClicked=()=>{
                     <div className='image-cropper'>
                         <img src={post.userImg} alt='user' className='user-img'></img>
                     </div>
-                    <Link to={`/users/${post.user_id}`}>
+                    <Link to={`/users/${post.user_id}`} onClick={this.handleUsernameClick}>
                         <p className='username'>{post.username}</p>
                     </Link>
                 </div>
