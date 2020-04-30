@@ -9,6 +9,7 @@ const MemeContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
+  setComments:()=>{},
   setPosts: () => {},
   processLogin: () => {},
   processLogout: () => {},
@@ -61,6 +62,7 @@ export class MemeProvider extends Component {
   setPosts = posts => {
     this.setState({ posts })
   }
+
 
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
