@@ -62,7 +62,7 @@ export default class DashboardPage extends Component {
                                 <img src={posts[i].userImg} alt='user' className='user-img'></img>
                             </div>
                             <Link to={`/users/${posts[i].user_id}`}>
-                                <p className='username'>{posts[i].username}</p>
+                                <p className='username' >{posts[i].username}</p>
                             </Link>
                         </div>
                         <Link to={`/posts/${posts[i].id}`}>

@@ -29,8 +29,8 @@ const PostsService = {
       )
   },
 
-  getUserPosts(){
-    return fetch(`${config.API_ENDPOINT}/posts/users/:user_id`, {
+  getUserPosts(userId){
+    return fetch(`${config.API_ENDPOINT}/posts/users/${userId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'

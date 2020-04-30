@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
 import AuthApiService from '../../services/auth-api-service'
-import MemeContext from '../../contexts/MemeContext'
+import MemeContext from '../../context/MemeContext'
 
 
 class Login extends Component{
