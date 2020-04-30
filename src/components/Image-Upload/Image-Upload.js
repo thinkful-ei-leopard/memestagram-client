@@ -22,7 +22,7 @@ export default class Image_Upload extends Component {
         formData.append(i, file)
       })
   
-      fetch(`${API_ENDPOINT}/imageupload`, {
+      fetch(`${API_ENDPOINT}/image-upload`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
