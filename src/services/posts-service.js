@@ -28,15 +28,13 @@ const PostsService = {
         : res.json()
       )
   },
-  postMemes(description, userId){
-    return fetch(`${config.API_ENDPOINT}/user/${userId}`, {
-      method: 'POST',
+
+  getUserPosts(){
+    return fetch(`${config.API_ENDPOINT}/posts/users/:user_id`, {
+      method: 'GET',
       headers: {
         'content-type': 'application/json'
-      },
-      body:JSON.stringify(
-        description,
-      ),
+      }
     })
       .then(res =>
         (!res.ok)

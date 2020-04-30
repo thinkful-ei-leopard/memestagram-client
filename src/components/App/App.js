@@ -6,7 +6,10 @@ import DashboardPage from '../Dashboard/DashboardPage';
 import PhotoView from '../PhotoView/PhotoView';
 import SignUp from '../SignUp/SignUp';
 import Login from '../Login/Login';
+
 import AddPost from '../AddPost/AddPost';
+import UserPage from '../UserPage/UserPage'
+
 
 export default class App extends Component {
   render() {
@@ -19,6 +22,7 @@ export default class App extends Component {
           <Route path='/login' component={Login}/>
           <Route path='/register' component={SignUp}/>
           <Route path='/addPost'component={AddPost}/>
+          <Route path='/users' component={UserPage} />
         {/*<Route component={NotFound}/>*/}
         </Switch>
       </main>

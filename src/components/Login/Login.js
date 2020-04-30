@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
 import AuthApiService from '../../services/auth-api-service'
-import MemeContext from '../../context/MemeContext'
+import MemeContext from '../../contexts/MemeContext'
+
+
 class Login extends Component{
-  static defaultProps={
-    onLoginSuccess:()=>{}
+
+  static defaultProps = {
+    onLoginSuccess: () => { }
   }
 
   static contextType = MemeContext
@@ -39,14 +42,19 @@ class Login extends Component{
     this.firstInput.current.focus()
   }
 
-
   render() {
     
+    const { error } = this.state
+
     return (
-      <form className='login'>
+      <form className='LoginForm' onSubmit={this.handleSubmit}>
+
+<div role='alert'>  {error && <p>{error}</p>}  </div>
+
         <div className='login-input'>
           <Label htmlFor='login-username'> Username </Label>
-          <Input id='login-username' name='username' required />
+          <Input ref={this.firstInput} id='login-username' name='username' required />
+
         </div>
         <div className='login-input'>
           <Label htmlFor='login-password'>Password</Label>
