@@ -15,12 +15,28 @@ const PostsService = {
         : res.json()
       )
   },
-  getOnePost(){
-    return fetch(`${config.API_ENDPOINT}/posts/:post_id`, {
+  getOnePost(postId){
+    return fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
       }
+    })
+      .then(res =>
+        (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+      )
+  },
+  postMemes(description, userId){
+    return fetch(`${config.API_ENDPOINT}/user/${userId}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body:JSON.stringify(
+        description,
+      ),
     })
       .then(res =>
         (!res.ok)
