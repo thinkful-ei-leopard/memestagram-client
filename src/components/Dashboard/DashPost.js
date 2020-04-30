@@ -4,7 +4,11 @@ import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
 
 export default class DashboardPage extends Component {
-    state = {
+   static defaultProps={
+    handlePhotoView:()=>{ }
+   } 
+      state = {
+          
         count: 0,
         posts: [],
         like: '🤍'
@@ -33,6 +37,11 @@ export default class DashboardPage extends Component {
         })   
     }
    }
+
+
+   handleClicked=()=>{
+    this.props.handlePhotoView()
+   }
     
    renderPosts() {
         const posts = this.state.posts
@@ -40,22 +49,24 @@ export default class DashboardPage extends Component {
         const postsArr = []
         if(!Array.isArray(posts) || !posts.length) {
             postsArr.push(
-                <div className='no-posts'>
+                <div key={posts} className='no-posts'>
                     <h2 className='no-posts-message'>No memes yet!</h2>
                 </div>
             )
         } else {
             for(let i = 0; i < posts.length; i++) {
                 postsArr.push(
-                    <div className='posts'>  
+                    <div  key={posts[i].id} className='posts'>  
                         <div className='upper-container'>
                             <div className='image-cropper'>
                                 <img src={posts[i].userImg} alt='user' className='user-img'></img>
                             </div>
-                            <p className='username'>{posts[i].username}</p>
+                            <Link to={`/users/${posts[i].user_id}`}>
+                                <p className='username' >{posts[i].username}</p>
+                            </Link>
                         </div>
-                        <Link to='/photo'>
-                            <img src={posts[i].memeImg} alt='meme' className='meme'></img>
+                        <Link to={`/posts/${posts[i].id}`}>
+                            <img src={posts[i].memeImg} alt='meme' className='meme'  onClick={(e) => this.handleClicked(e)} ></img>
                         </Link>
                         <div className='post-content'>
                             <span role='img' aria-label='heart' onClick={() =>this.addLike()} className='heart'>{this.state.like}</span>likes: {posts[i].likes}
@@ -65,7 +76,7 @@ export default class DashboardPage extends Component {
                                 <p className='description'>{posts[i].description}</p>
                             </div>
                         </div>
-                        <Link to='/photo'>Comment</Link>
+                        <Link to={`/posts/${posts[i].id}`}>Comment</Link>
                     </div>
                 )
             }
