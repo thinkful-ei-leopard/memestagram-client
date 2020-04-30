@@ -16,3 +16,23 @@
 #post:hover {  
     color:#ed1250;   
 }
+
+.memePost{
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.single{
+   display: inline-block;
+  
+   
+}
+.user_name{
+    display: inline-block;
+    margin-left: 20px;
+}
+.user{
+    font-weight: bold;
+    margin-right: 10px;
+}
