@@ -7,17 +7,11 @@ export default class DashboardPage extends Component {
 
     state = {
         posts: [],
-        like: '🤍'
+        heart: '🤍',
+        likes: this.props.post.likes
     }
 
     static contextType = MemeContext
-
-    componentDidMount(){
-        this.context.clearError()
-        PostsService.getPosts()
-            .then(res => this.setState({posts: res}))
-            .catch(this.context.setError)
-    }
 
     renderLike(heart = '🤍') {
         if(heart === '🤍') {
@@ -28,73 +22,58 @@ export default class DashboardPage extends Component {
     }
 
     handleAddLike(post, e) {
-    if(e.target.checked === true){
+    if(this.state.heart === '🤍'){
         const incLike = post.likes+1
-        console.log(incLike)
         PostsService.addLike(post.id, post.likes + 1)
         this.setState({
-            likes: post.likes + 1
+            heart: '❤️',
+            likes: incLike
         }) 
-    } else if (e.target.checked === false) {
-        const decLike = post.likes
-        console.log(decLike)
+    } else if (this.state.heart === '❤️') {
         PostsService.addLike(post.id, post.likes)
         this.setState({
-            likes: decLike
+            heart: '🤍',
+            likes: post.likes
         })   
     }
    }
+
+
+   renderPost() {
+        const { post } = this.props
     
-   renderPosts() {
-        const posts = this.state.posts
-
-        const postsArr = []
-        if(!Array.isArray(posts) || !posts.length) {
-            postsArr.push(
-                <div className='no-posts'>
-                    <h2 className='no-posts-message'>No memes yet!</h2>
-                </div>
-            )
-        } else {
-            for(let i = 0; i < posts.length; i++) {
-                postsArr.push(
-                    <div className='posts'>  
-                        <div className='upper-container'>
-                            <div className='image-cropper'>
-                                <img src={posts[i].userImg} alt='user' className='user-img'></img>
-                            </div>
-                            <Link to={`/users/${posts[i].user_id}`}>
-                                <p className='username'>{posts[i].username}</p>
-                            </Link>
-                        </div>
-                        <Link to={`/posts/${posts[i].id}`}>
-                            <img src={posts[i].memeImg} alt='meme' className='meme'></img>
-                        </Link>
-                        <div className='post-content'>
-                            <label>
-                                <input type='checkbox' onChange={(e) => this.handleAddLike(posts[i], e)}/>
-                            </label>
-                            likes: {posts[i].likes}
-                            <span>comments: 123</span>
-                            <div className='description-contianer'>
-                                <p className='username'>{posts[i].username}</p>
-                                <p className='description'>{posts[i].description}</p>
-                            </div>
-                        </div>
-                        <Link to='/photo'>Comment</Link>
+        return (
+            <div className='post'>  
+                <div className='upper-container'>
+                    <div className='image-cropper'>
+                        <img src={post.userImg} alt='user' className='user-img'></img>
                     </div>
-                )
-            }
-        }
-
-        return postsArr
-   }
+                    <Link to={`/users/${post.user_id}`}>
+                        <p className='username'>{post.username}</p>
+                    </Link>
+                </div>
+                <Link to={`/post/${post.id}`}>
+                    <img src={post.memeImg} alt='meme' className='meme'></img>
+                </Link>
+                <div className='post-content'>
+                    <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(post, e)} className='heart'>{this.state.heart}</span>
+                    likes: {this.state.likes}
+                    <span>comments: 123</span>
+                    <div className='description-contianer'>
+                        <p className='username'>{post.username}</p>
+                        <p className='description'>{post.description}</p>
+                    </div>
+                </div>
+                <Link to='/photo'>Comment</Link>
+            </div>
+        ) 
+    }
     
     render() {
         
         return (
             <div>
-                {this.renderPosts()}
+                {this.renderPost()}
             </div>
         )
     }
