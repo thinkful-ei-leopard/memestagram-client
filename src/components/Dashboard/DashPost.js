@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
-
+import CommentsService from '../../services/comment-service'
 export default class DashPost extends Component {
 
    static defaultProps={
@@ -10,13 +10,13 @@ export default class DashPost extends Component {
    } 
       state = {      
         count: 0,
-        posts: [],
+        posts: [],        
          heart: '🤍',
         likes: this.props.post.likes
     }
 
     static contextType = MemeContext
-
+    
     handleAddLike(post, e) {
         if(this.state.heart === '🤍'){
             const incLike = post.likes+1
@@ -33,15 +33,15 @@ export default class DashPost extends Component {
             })   
         }
        }
-
-
+   
+ 
    handleClicked=()=>{
     this.props.handlePhotoView()
    }
     
    renderPost() {
     const { post } = this.props
-        
+      
     return (
         <div className='post'>  
             <div className='upper-container'>
@@ -58,7 +58,8 @@ export default class DashPost extends Component {
             <div className='post-content'>
                 <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(post, e)} className='heart'>{this.state.heart}</span>
                 likes: {this.state.likes}
-                <span>comments: 123</span>
+                <span>Comments:{post.comment} </span>
+                
                 <div className='description-contianer'>
                     <p className='username'>{post.username}</p>
                     <p className='description'>{post.description}</p> 

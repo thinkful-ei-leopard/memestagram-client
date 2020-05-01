@@ -7,7 +7,6 @@ import MemeContext from '../../context/MemeContext';
 import { Input, Label } from '../Form/Form';
 import Button from '../Button/Button';
 import Comments from './Comments';
-
 export default class PhotoView extends Component {
 static defaultProps={
    
@@ -80,7 +79,7 @@ addComment(event){
                 </div>
                 <h3 className='user_name'>{singlePost.username}</h3>
                 <p className='user_name'>{singlePost.description}</p> 
-                <p>Total Comments: {comments.length}</p>
+               <p>Total Comments: {comments.length}</p>
                 <div>{this.renderComments()}</div> 
                 <form onSubmit={this.addComment}>
                 <div className='postComment'>
