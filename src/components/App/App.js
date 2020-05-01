@@ -5,7 +5,7 @@ import './App.css';
 import DashboardPage from '../Dashboard/DashboardPage';
 import PhotoView from '../PhotoView/PhotoView';
 import SignUp from '../SignUp/SignUp';
-import Login from '../Login/Login';
+import Login from '../../routes/LoginRoute/LoginRoute';
 
 import AddPost from '../AddPost/AddPost';
 import UserPage from '../UserPage/UserPage'
