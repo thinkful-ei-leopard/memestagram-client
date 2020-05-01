@@ -22,16 +22,17 @@ export default class Image_Upload extends Component {
         formData.append(i, file)
       })
   
-      fetch(`${API_ENDPOINT}/image-upload`, {
+      fetch(`http://localhost:8000/api/image-upload`, {
         method: 'POST',
         headers: {
-          'content-type': 'application/json',
+          'content-type': 'image/jpg',
           'accept': 'application/json'
         },
         body: formData
       })
       .then(res => res.json())
       .then(images => {
+        console.log(images)
         this.setState({ 
           uploading: false,
           images
@@ -44,10 +45,11 @@ export default class Image_Upload extends Component {
         images: this.state.images.filter(image => image.public_id !== id)
       })
     }
+
     
     render() {
       const { uploading, images } = this.state
-  
+      console.log("this is the endpoint", API_ENDPOINT)
       const content = () => {
         switch(true) {
           case uploading:
