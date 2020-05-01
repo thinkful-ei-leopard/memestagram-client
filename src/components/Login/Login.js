@@ -50,8 +50,7 @@ class Login extends Component{
     return (
       <form className='LoginForm' onSubmit={this.handleSubmit}>
 
-
-      
+        <p>{error}</p>
 
         <div className='login-input'>
           <Label htmlFor='login-username'> Username </Label>

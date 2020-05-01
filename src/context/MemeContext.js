@@ -29,6 +29,7 @@ export class MemeProvider extends Component {
         id: jwtPayload.user_id,
         name: jwtPayload.name,
         username: jwtPayload.sub,
+        userImg: jwtPayload.userImg
       }
 
     this.state = state;
@@ -63,29 +64,13 @@ export class MemeProvider extends Component {
       id: jwtPayload.user_id,
       name: jwtPayload.name,
       username: jwtPayload.sub,
-    })
-    TokenService.queueCallbackBeforeExpiry(() => {
-      this.fetchRefreshToken()
+      userImg: jwtPayload.userImg
     })
   }
 
   processLogout = () => {
     TokenService.clearAuthToken()
-    TokenService.clearCallbackBeforeExpiry()
     this.setUser({})
-  }
-
-  fetchRefreshToken = () => {
-    AuthApiService.refreshToken()
-      .then(res => {
-        TokenService.saveAuthToken(res.authToken)
-        TokenService.queueCallbackBeforeExpiry(() => {
-          this.fetchRefreshToken()
-        })
-      })
-      .catch(err => {
-        this.setError(err)
-      })
   }
 
   render() {
