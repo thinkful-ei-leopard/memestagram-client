@@ -24,10 +24,6 @@ export default class Image_Upload extends Component {
   
       fetch(`http://localhost:8000/api/image-upload`, {
         method: 'POST',
-        headers: {
-          'content-type': 'image/jpg',
-          'accept': 'application/json'
-        },
         body: formData
       })
       .then(res => res.json())
@@ -49,7 +45,6 @@ export default class Image_Upload extends Component {
     
     render() {
       const { uploading, images } = this.state
-      console.log("this is the endpoint", API_ENDPOINT)
       const content = () => {
         switch(true) {
           case uploading:
