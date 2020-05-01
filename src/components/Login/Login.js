@@ -45,11 +45,13 @@ class Login extends Component{
   render() {
     
     const { error } = this.state
+    console.log(error);
 
     return (
       <form className='LoginForm' onSubmit={this.handleSubmit}>
 
-<div role='alert'>  {error && <p>{error}</p>}  </div>
+
+      
 
         <div className='login-input'>
           <Label htmlFor='login-username'> Username </Label>
