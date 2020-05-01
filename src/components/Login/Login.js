@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
-import { Input, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
-import MemeContext from '../../contexts/MemeContext'
+import MemeContext from '../../context/MemeContext'
 
 
 class Login extends Component{
@@ -46,11 +45,13 @@ class Login extends Component{
   render() {
     
     const { error } = this.state
+    console.log(error);
 
     return (
       <form className='LoginForm' onSubmit={this.handleSubmit}>
 
-<div role='alert'>  {error && <p>{error}</p>}  </div>
+
+      
 
         <div className='login-input'>
           <Label htmlFor='login-username'> Username </Label>

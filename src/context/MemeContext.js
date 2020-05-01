@@ -33,14 +33,6 @@ export class MemeProvider extends Component {
     this.state = state;
   }
 
-  componentDidMount() {
-    if (TokenService.hasAuthToken()) {
-      TokenService.queueCallbackBeforeExpiry(() => {
-        this.fetchRefreshToken()
-      })
-    }
-  }
-
   componentWillUnmount() {
     TokenService.clearCallbackBeforeExpiry()
   }
@@ -113,3 +105,4 @@ export class MemeProvider extends Component {
     )
   }
 }
+
