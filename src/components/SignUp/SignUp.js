@@ -77,7 +77,7 @@ export default class SignUp extends Component {
         </div>
         <div>
           <Label htmlFor='registration-password-input'>
-            Choose a password<Required />
+            Choose a password <Required /> 
           </Label>
           <Input
             id='registration-password-input'
