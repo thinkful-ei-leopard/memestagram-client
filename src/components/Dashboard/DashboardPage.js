@@ -8,7 +8,8 @@ import './Dashboard.css'
 export default class DashboardPage extends Component {
     state = {
        posts: [],
-       error: null
+       error: null,
+       
     }
 
     static contextType = MemeContext
@@ -20,9 +21,11 @@ export default class DashboardPage extends Component {
             .catch(this.context.setError)
     } 
 
+    
+
     renderPosts() {
         const { posts = [] } = this.state
-
+         
         return posts.map(post => 
             <DashPost
             key={post.id}

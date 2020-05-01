@@ -7,7 +7,6 @@ import MemeContext from '../../context/MemeContext';
 import { Input, Label } from '../Form/Form';
 import Button from '../Button/Button';
 import Comments from './Comments';
-
 export default class PhotoView extends Component {
 static defaultProps={
    
@@ -16,6 +15,7 @@ static defaultProps={
     }
 }  
 state={
+    postId:0,
     error:null,
     singlePost:'',
     comments:[],
@@ -24,24 +24,23 @@ state={
 static contextType = MemeContext
 
 componentDidMount(){
-  const{postId }=this.props.match.params
+  const {postId }=this.props.match.params
+  this.setState({postId: Number(postId)})
     this.context.clearError()
     PostsService.getOnePost(postId)
         .then(res => this.setState({singlePost:res}))
         .catch(this.context.setError)
     CommentsService.getComment(postId)
         .then(res => this.setState({comments:res}))
-        .catch(this.context.setError)  
-        
-        
+        .catch(this.context.setError)        
 }
 
-addComment(event){
-   event.preventDefault();
-   const {newComment}=event.target
-   CommentsService.postComment({
-    newComment:newComment.value
-    })
+async addComment(e){
+    e.preventDefault();  
+   const {newComment}=e.target
+await CommentsService.postComment(
+     newComment.value,
+     this.state.postId, this.context.user.id)
     .then(data =>{
         newComment.value=' '
     })
@@ -50,7 +49,9 @@ addComment(event){
             error:JSON.stringify(res.error)
         })
     })
-
+await  CommentsService.getComment(this.state.postId)
+       .then(res => this.setState({comments:res}))
+       .catch(this.context.setError) 
    }
 
    renderComments(){
@@ -80,9 +81,9 @@ addComment(event){
                 </div>
                 <h3 className='user_name'>{singlePost.username}</h3>
                 <p className='user_name'>{singlePost.description}</p> 
-                <p>Total Comments: {comments.length}</p>
+               <p>Total Comments: {comments.length}</p>
                 <div>{this.renderComments()}</div> 
-                <form onSubmit={this.addComment}>
+                <form onSubmit={(e)=>this.addComment(e)}>
                 <div className='postComment'>
                 <Label htmlFor='newComment'></Label>
                 <Input type='text' name='newComment' id='newComment' placeholder=' Add commnet ...' required></Input>
