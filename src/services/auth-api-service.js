@@ -7,6 +7,7 @@ const AuthApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
+        'accept': 'application/json, text/plain',
       },
       body: JSON.stringify(user),
     })
