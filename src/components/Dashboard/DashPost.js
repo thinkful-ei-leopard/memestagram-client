@@ -20,11 +20,11 @@ export default class DashPost extends Component {
 
     static contextType = MemeContext
 
-    renderLike(heart = '🤍') {
-        if(heart === '🤍') {
-            return '🤍'
-        } else if (heart === '❤️') {
-            return '❤️'
+    renderDelete(post, e){
+        if(this.context.user.id === post.user_id){
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(post, e)}>🗑️</span> </div>
+        } else {
+            return
         }
     }
 
@@ -32,12 +32,14 @@ export default class DashPost extends Component {
     if(this.state.heart === '🤍'){
         const incLike = post.likes+1
         PostsService.addLike(post.id, post.likes + 1)
+            .catch(this.context.setError)
         this.setState({
             heart: '❤️',
             likes: incLike
         }) 
     } else if (this.state.heart === '❤️') {
         PostsService.addLike(post.id, post.likes)
+            .catch(this.context.setError)
         this.setState({
             heart: '🤍',
             likes: post.likes
@@ -50,8 +52,13 @@ export default class DashPost extends Component {
     }
 
     handleUsernameClick = () => {
-        console.log('handleusername')
         this.props.handleUserView()
+    }
+
+    handleDelete = (post) => {
+        console.log(post.id)
+        PostsService.deletePost(post.id)
+            .catch(this.context.setError)
     }
 
    renderPost() {
@@ -74,6 +81,7 @@ export default class DashPost extends Component {
                     <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(post, e)} className='heart'>{this.state.heart}</span>
                     likes: {this.state.likes}
                     <span>comments: 123</span>
+                    <div className='delete-container' >{this.renderDelete(post)}</div>
                     <div className='description-contianer'>
                         <p className='username'>{post.username}</p>
                         <p className='description'>{post.description}</p> 

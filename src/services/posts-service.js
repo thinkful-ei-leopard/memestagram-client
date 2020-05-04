@@ -1,5 +1,5 @@
 import config from '../config'
-// import TokenService from './token-service'
+import TokenService from './token-service'
 
 const PostsService = {
   getPosts() {
@@ -15,7 +15,7 @@ const PostsService = {
         : res.json()
       )
   },
-  getOnePost(postId){
+  getOnePost(postId) {
     return fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
       method: 'GET',
       headers: {
@@ -28,8 +28,7 @@ const PostsService = {
         : res.json()
       )
   },
-
-  getUserPosts(userId){
+  getUserPosts(userId) {
     return fetch(`${config.API_ENDPOINT}/posts/users/${userId}`, {
       method: 'GET',
       headers: {
@@ -57,6 +56,24 @@ const PostsService = {
         (!res.ok)
           ? res.then(e => Promise.reject(e))
           : res
+      )
+  },
+  deletePost(id) {
+    return fetch(`${config.API_ENDPOINT}/posts`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
+        id: id
+      })
+    })
+      .then(res =>
+        (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
       )
   }
 }
