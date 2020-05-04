@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Buttons from './Upload-Button'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
-import  API_ENDPOINT from '../../config'
+import API_ENDPOINT from '../../config'
 import './ImageUpload.css'
 
 export default class Image_Upload extends Component {
@@ -22,12 +22,13 @@ export default class Image_Upload extends Component {
         formData.append(i, file)
       })
   
-      fetch(`${API_ENDPOINT}/image-upload`, {
+      fetch(`http://localhost:8000/api/image-upload`, {
         method: 'POST',
         body: formData
       })
       .then(res => res.json())
       .then(images => {
+        console.log(images)
         this.setState({ 
           uploading: false,
           images
@@ -40,10 +41,10 @@ export default class Image_Upload extends Component {
         images: this.state.images.filter(image => image.public_id !== id)
       })
     }
+
     
     render() {
       const { uploading, images } = this.state
-  
       const content = () => {
         switch(true) {
           case uploading:

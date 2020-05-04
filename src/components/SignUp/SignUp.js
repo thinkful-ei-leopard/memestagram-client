@@ -4,6 +4,7 @@ import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
 import ImageUpload from '../Image-Upload/Image-Upload'
+import ImageUploadService from '../../services/image-upload-service'
 
 // import Spinner from '../Image-Upload/Spinner'
 // import Images from '../Image-Upload/Images'
@@ -17,12 +18,13 @@ export default class SignUp extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        const { name, username, password } = ev.target
+        const { name, username, password, userImg } = ev.target
         AuthApiService.postUser({
             name: name.value,
             username: username.value,
             password: password.value,
-          })
+          }) 
+          ImageUploadService.postProfileImage({})
             .then(user => {
               name.value = ''
               username.value = ''
@@ -32,6 +34,7 @@ export default class SignUp extends Component {
             .catch(res => {
               this.setState({ error: res.error })
             })
+           
         }
       
         componentDidMount() {
@@ -74,7 +77,7 @@ export default class SignUp extends Component {
         </div>
         <div>
           <Label htmlFor='registration-password-input'>
-            Choose a password<Required />
+            Choose a password <Required /> 
           </Label>
           <Input
             id='registration-password-input'
