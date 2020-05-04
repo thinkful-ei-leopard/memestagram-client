@@ -15,7 +15,8 @@ export default class DashPost extends Component {
         count: 0,
         posts: [],
         heart: '🤍',
-        likes: this.props.post.likes
+        likes: this.props.post.likes,
+        delete: false
     }
 
     static contextType = MemeContext
@@ -55,9 +56,12 @@ export default class DashPost extends Component {
         this.props.handleUserView()
     }
 
-    handleDelete = (post) => {
-        console.log(post.id)
-        PostsService.deletePost(post.id)
+    async handleDelete(post, e) {
+        e.preventDefault()
+        await PostsService.deletePost(post.id)
+            .then(this.setState({delete: true}))
+        await PostsService.getPosts()
+            .then(res => this.setState({posts: res}))
             .catch(this.context.setError)
     }
 

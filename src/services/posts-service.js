@@ -68,12 +68,12 @@ const PostsService = {
       },
       body: JSON.stringify({
         id: id
-      })
+      }),
     })
-      .then(res =>
+      .then(res => 
         (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json()
+        ? res.then(e => Promise.reject(e))
+        : res 
       )
   }
 }
