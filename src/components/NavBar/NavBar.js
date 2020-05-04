@@ -14,14 +14,6 @@ export default class NavBar extends React.Component {
 
   static contextType = MemeContext
 
-  //!need to get the user 
-  // componentDidMount(){
-  //     this.context.clearError()
-  //     PostsService.getPosts()
-  //         .then(res => this.setState({posts: res}))
-  //         .catch(this.context.setError)
-  // }
-
   handleLogoutClick = () => {
     this.context.processLogout()
   }
@@ -36,7 +28,6 @@ export default class NavBar extends React.Component {
             className='logout'>
             Logout
           </Link>
-          <Link to='/dashboard' className='dashboard'>Dashboard</Link>
         </div>
       </div>
     )
@@ -64,14 +55,16 @@ export default class NavBar extends React.Component {
           </h1>
 
           {TokenService.hasAuthToken()
+            ? <Link to={`/user/${this.context.user.id}`}> <div className='image-cropper'> <img src={this.context.user.userImg} alt='user' className='nav-bar-user-image'></img> </div> </Link>
+            : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
+          }
+
+          {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()
           }
 
-          {/* {TokenService.hasAuthToken()
-            ? <Link to='/settings'> <div className='nav-bar-user-image'> <img src={this.context.userImage} alt='user image'></img> </div> </Link>
-            : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
-          } */}
+          
           <Link to='/addPost'>Add Post</Link>
         </nav>
       </header>
