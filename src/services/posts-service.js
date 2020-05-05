@@ -1,5 +1,5 @@
 import config from '../config'
-// import TokenService from './token-service'
+import TokenService from './token-service'
 
 const PostsService = {
   getPosts() {
@@ -15,6 +15,27 @@ const PostsService = {
         : res.json()
       )
   },
+  postMeme(description, memeImg, user_id){
+    return fetch(`${config.API_ENDPOINT}/posts`, {
+      method:'POST',
+      headers:{
+        'Content-Type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({ 
+        description: description,
+          memeImg: memeImg,
+          user_id: user_id
+        }), 
+    })
+    .then(res =>
+      (!res.ok)
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+    )
+   
+    },
+
   getOnePost(postId){
     return fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
       method: 'GET',

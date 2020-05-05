@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import Buttons from '../Image-Upload/Upload-Button'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
-import  API_ENDPOINT from '../../config'
 
 
-export default class Image_Upload extends Component {
+export default class AddMemes extends Component {
   
     state = {
       uploading: false,
-      images: []
+      memes: [],
+      memesUrl:null
     }
   
     onChange = e => {
+      console.log(e.target.url)
       const files = Array.from(e.target.files)
       this.setState({ uploading: true })
   
@@ -22,34 +23,36 @@ export default class Image_Upload extends Component {
         formData.append(i, file)
       })
   
-      fetch(`${API_ENDPOINT}/image-upload`, {
+      fetch(`http://localhost:8000/api/meme-upload`, {
         method: 'POST',
         body: formData
       })
       .then(res => res.json())
-      .then(images => {
+      .then(memes => {
         this.setState({ 
           uploading: false,
-          images
+          memes,
+         memesUrl:memes[0].url
         })
+        console.log(memes)
       })
     }
   
     removeImage = id => {
       this.setState({
-        images: this.state.images.filter(image => image.public_id !== id)
+        memes: this.state.memes.filter(image => image.public_id !== id)
       })
     }
     
     render() {
-      const { uploading, images } = this.state
+      const { uploading, memes } = this.state
   
       const content = () => {
         switch(true) {
           case uploading:
             return <Spinner />
-          case images.length > 0:
-            return <Images images={images} removeImage={this.removeImage} />
+          case memes.length > 0:
+            return <Images images={memes} removeImage={this.removeImage} />
           default:
             return <Buttons onChange={this.onChange} />
         }
@@ -59,8 +62,9 @@ export default class Image_Upload extends Component {
         <div>
           <div className='buttons'>
             {content()}
+            <p>{this.state.memesUrl}</p>
           </div>
         </div>
       )
     }
-  }
+  }*/
