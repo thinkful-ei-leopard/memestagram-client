@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Label} from '../Form/Form';
-import { Link }from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import Button from '../Button/Button';
 import './AddPost.css';
@@ -18,6 +17,7 @@ export default class AddPost extends Component {
         memeImg:null
       }
       static contextType = MemeContext
+      
 async addPosts(event){
      event.preventDefault();
      const {description}=event.target

@@ -6,7 +6,8 @@ const PostsService = {
     return fetch(`${config.API_ENDPOINT}/posts`, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>
@@ -40,7 +41,8 @@ const PostsService = {
     return fetch(`${config.API_ENDPOINT}/posts/${postId}`, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>
@@ -53,7 +55,8 @@ const PostsService = {
     return fetch(`${config.API_ENDPOINT}/posts/users/${userId}`, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>
@@ -66,7 +69,8 @@ const PostsService = {
     return fetch(`${config.API_ENDPOINT}/posts`, {
       method: 'PATCH',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
         id: id,

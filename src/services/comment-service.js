@@ -7,7 +7,7 @@ const CommentsService = {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        //'authorization': `bearer ${TokenService.getAuthToken()}`
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>
