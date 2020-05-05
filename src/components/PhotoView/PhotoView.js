@@ -58,6 +58,13 @@ export default class PhotoView extends Component {
         .catch(this.context.setError) 
     }
 
+    async handleDelete(post, e) {
+        e.preventDefault()
+        await PostsService.deletePost(post.id)
+            .then(this.setState({delete: true}))
+        await this.props.history.push('/dashboard');
+    }
+
     renderComments(){
         const comments= this.state.comments;
         const commentsArr=[];
@@ -71,7 +78,13 @@ export default class PhotoView extends Component {
         return commentsArr
     }
 
-
+    renderDeletePost(post) {
+        if(post.user_id === this.context.user.id) {
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(post, e)}>🗑️</span> </div>
+        } else {
+            return
+        }
+    }
 
     render() {
         const {singlePost, comments}=this.state
@@ -88,7 +101,7 @@ export default class PhotoView extends Component {
                 <h3 className='user_name'>{singlePost.username}</h3>
                 <p className='user_name'>{singlePost.description}</p> 
                 <p>Total Comments: {comments.length}</p>
-                
+                <div>{this.renderDeletePost(singlePost)}</div>
                 <div>{this.renderComments()}</div> 
                 <form onSubmit={(e)=>this.addComment(e)}>
                 <div className='postComment'>
