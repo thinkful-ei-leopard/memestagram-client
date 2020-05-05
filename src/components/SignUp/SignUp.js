@@ -76,7 +76,7 @@ firstInput = React.createRef()
             .catch(res => {
               this.setState({ error: res.error })
             })
-            
+
             this.props.history.push('/login')
            
         }
@@ -112,8 +112,7 @@ firstInput = React.createRef()
         return (
         <form
         className='form'
-        onSubmit={this.handleSubmit}
-      >
+        onSubmit={this.handleSubmit}>
         <div>
           {this.renderUerImg()}
         </div>
