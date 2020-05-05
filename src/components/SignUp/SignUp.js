@@ -72,6 +72,7 @@ firstInput = React.createRef()
               this.setState({
                 userImg:null
               })
+              console.log(user)
               this.props.onSignUpSuccess()
             })
             .catch(res => {
