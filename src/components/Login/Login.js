@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
 import AuthApiService from '../../services/auth-api-service'
@@ -48,23 +49,27 @@ class Login extends Component{
     console.log(error);
 
     return (
-      <form className='LoginForm' onSubmit={this.handleSubmit}>
+      <>
+        <header><Link to='/'><p>{'< Back'}</p></Link></header>
+        <form className='LoginForm' onSubmit={this.handleSubmit}>
 
-        <p>{error}</p>
+          <p>{error}</p>
 
-        <div className='login-input'>
-          <Label htmlFor='login-username'> Username </Label>
-          <Input ref={this.firstInput} id='login-username' name='username' required />
+          <div className='login-input'>
+            <Label htmlFor='login-username'> Username </Label>
+            <Input ref={this.firstInput} id='login-username' name='username' required />
 
-        </div>
-        <div className='login-input'>
-          <Label htmlFor='login-password'>Password</Label>
-          <Input id='login-password' name='password' type='password' required/>
-        </div>
-        <div className='login-input'>
-        <Button type='submit'> Login </Button>
-        </div>
-     </form>
+          </div>
+          <div className='login-input'>
+            <Label htmlFor='login-password'>Password</Label>
+            <Input id='login-password' name='password' type='password' required/>
+          </div>
+          <div className='login-input'>
+          <Button type='submit'> Login </Button>
+          <Link to='/register'>Not signed up yet?</Link>
+          </div>
+      </form>
+     </>
     )
   }
   
