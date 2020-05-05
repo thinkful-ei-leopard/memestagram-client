@@ -60,9 +60,7 @@ export default class DashPost extends Component {
         e.preventDefault()
         await PostsService.deletePost(post.id)
             .then(this.setState({delete: true}))
-        await PostsService.getPosts()
-            .then(res => this.setState({posts: res}))
-            .catch(this.context.setError)
+        await window.location.reload(false);
     }
 
    renderPost() {
