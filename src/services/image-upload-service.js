@@ -1,4 +1,4 @@
-import config from '../config'
+/*import config from '../config'
 
 const ImageUploadService = {
   postProfileImage(formData) {
@@ -13,4 +13,4 @@ const ImageUploadService = {
   }
 }
 
-export default ImageUploadService
+export default ImageUploadService*/
