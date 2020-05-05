@@ -74,7 +74,6 @@ export default class PhotoView extends Component {
 
     renderComments(){
         const comments= this.state.comments;
-        console.log(comments)
         const commentsArr=[];
             for(let i = 0; i < comments.length; i++) {
                 commentsArr.push(
