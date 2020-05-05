@@ -85,7 +85,9 @@ export default class DashPost extends Component {
                     <span>comments: 123</span>
                     <div className='delete-container' >{this.renderDelete(post)}</div>
                     <div className='description-contianer'>
-                        <p className='username'>{post.username}</p>
+                        <Link to={`/users/${post.user_id}`} onClick={this.handleUsernameClick}> 
+                            <p className='username'>{post.username}</p> 
+                        </Link>
                         <p className='description'>{post.description}</p> 
                     </div>
                 </div>

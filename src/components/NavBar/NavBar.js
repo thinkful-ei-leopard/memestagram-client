@@ -7,6 +7,10 @@ import './NavBar.css'
 
 export default class NavBar extends React.Component {
 
+  static defaultProps = {
+    handleUserView: () => { }
+  }
+
   state = {
     count: 0,
     user: [],
@@ -16,6 +20,10 @@ export default class NavBar extends React.Component {
 
   handleLogoutClick = () => {
     this.context.processLogout()
+  }
+
+  handleUsernameClick = () => {
+    this.props.handleUserView()
   }
 
   renderLogoutLink() {
@@ -55,7 +63,7 @@ export default class NavBar extends React.Component {
           </h1>
 
           {TokenService.hasAuthToken()
-            ? <Link to={`/user/${this.context.user.id}`}> <div className='image-cropper'> <img src={this.context.user.userImg} alt='user' className='nav-bar-user-image'></img> </div> </Link>
+            ? <Link to={`/users/${this.context.user.id}`} onClick={this.handleUsernameClick}> <div className='image-cropper'> <img src={this.context.user.userImg} alt='user' className='nav-bar-user-image'></img> </div> </Link>
             : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
           }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PhotoView.css';
+import {Link} from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import CommentsService from '../../services/comment-service';
 import PostsService from '../../services/posts-service';
@@ -7,12 +7,15 @@ import MemeContext from '../../context/MemeContext';
 import { Input, Label } from '../Form/Form';
 import Button from '../Button/Button';
 import Comments from './Comments';
+
+import './PhotoView.css';
 export default class PhotoView extends Component {
+    
     static defaultProps={
-   
         history:{
             push:()=>{}
-        }
+        },
+        handleUserView: () => { }
     }  
 
     state = {
@@ -37,6 +40,10 @@ export default class PhotoView extends Component {
             .catch(this.context.setError)        
     }
 
+    handleUsernameClick = () => {
+        this.props.handleUserView()
+    }
+
     async addComment(e){
         e.preventDefault();  
         const {newComment}=e.target
@@ -58,9 +65,9 @@ export default class PhotoView extends Component {
         .catch(this.context.setError) 
     }
 
-    async handleDelete(post, e) {
+    async handleDelete(postId, e) {
         e.preventDefault()
-        await PostsService.deletePost(post.id)
+        await PostsService.deletePost(postId)
             .then(this.setState({delete: true}))
         await this.props.history.push('/dashboard');
     }
@@ -70,7 +77,7 @@ export default class PhotoView extends Component {
         const commentsArr=[];
             for(let i = 0; i < comments.length; i++) {
                 commentsArr.push(
-                    <Comments key={comments[i].id} user={comments[i].username} comment={comments[i].comment}/>
+                    <Comments key={comments[i].id} user={comments[i].username} user_id={comments[i].user_id} comment={comments[i].comment}/>
                 )
             }
         
@@ -80,7 +87,7 @@ export default class PhotoView extends Component {
 
     renderDeletePost(post) {
         if(post.user_id === this.context.user.id) {
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(post, e)}>🗑️</span> </div>
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(this.state.postId, e)}>🗑️</span> </div>
         } else {
             return
         }
@@ -98,7 +105,7 @@ export default class PhotoView extends Component {
                 <div className='image-cropper single'>
                 <img src={singlePost.userImg} alt='meme' className='user-img' />
                 </div>
-                <h3 className='user_name'>{singlePost.username}</h3>
+                <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <h3 className='user_name'>{singlePost.username}</h3> </Link>
                 <p className='user_name'>{singlePost.description}</p> 
                 <p>Total Comments: {comments.length}</p>
                 <div>{this.renderDeletePost(singlePost)}</div>
