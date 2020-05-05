@@ -76,8 +76,8 @@ export default class DashPost extends Component {
                         <p className='username'>{post.username}</p>
                     </Link>
                 </div>
-                <Link to={`/post/${post.id}`}>
-                    <img src={post.memeImg} alt='meme' className='meme'></img>
+                <Link to={`/posts/${post.id}`}>
+                    <img src={post.memeImg} alt='meme' className='meme'  onClick={(e) => this.handleClicked(e)}></img>
                 </Link>
                 <div className='post-content'>
                     <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(post, e)} className='heart'>{this.state.heart}</span>
@@ -89,7 +89,7 @@ export default class DashPost extends Component {
                         <p className='description'>{post.description}</p> 
                     </div>
                 </div>
-                <Link to='/photo'>Comment</Link>
+                <Link to={`/posts/${post.id}`}>Comment</Link>
             </div>
         ) 
     }
