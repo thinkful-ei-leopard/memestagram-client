@@ -17,6 +17,7 @@ export default class AddPost extends Component {
         memeImg:null
       }
       static contextType = MemeContext
+      
 async addPosts(event){
      event.preventDefault();
      const {description}=event.target

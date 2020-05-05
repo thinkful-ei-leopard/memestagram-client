@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
-//import ImageUpload from '../Image-Upload/Image-Upload'
-//import ImageUploadService from '../../services/image-upload-service'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
 import Buttons from '../Image-Upload/Upload-Button'
@@ -78,6 +76,8 @@ firstInput = React.createRef()
             .catch(res => {
               this.setState({ error: res.error })
             })
+            
+            this.props.history.push('/login')
            
         }
       
