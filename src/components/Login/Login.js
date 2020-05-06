@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import {Input, Label}from '../Form/Form'
 import Button from '../Button/Button'
@@ -46,27 +47,30 @@ class Login extends Component{
   render() {
     
     const { error } = this.state
-    console.log(error);
 
     return (
       <>
-        <header><Link to='/'><p>{'< Back'}</p></Link></header>
+      
+       
         <form className='LoginForm' onSubmit={this.handleSubmit}>
 
           <p>{error}</p>
 
           <div className='login-input'>
-            <Label htmlFor='login-username'> Username </Label>
-            <Input ref={this.firstInput} id='login-username' name='username' required />
+            <Label htmlFor='login-username'><FontAwesomeIcon icon='user' /></Label>
+            <Input ref={this.firstInput} id='login-username' name='username' placeholder='Username'required />
 
           </div>
           <div className='login-input'>
-            <Label htmlFor='login-password'>Password</Label>
-            <Input id='login-password' name='password' type='password' required/>
+            <Label htmlFor='login-password'><FontAwesomeIcon icon='lock' /></Label>
+            <Input id='login-password' name='password' type='password' placeholder='Password' required/>
           </div>
           <div className='login-input'>
           <Button type='submit'> Login </Button>
-          <Link to='/register'>Not signed up yet?</Link>
+          <Link to={'/'} className='landbtn'> Cancel </Link>
+          <div >
+          <Link to='/register' >Not signed up yet?</Link>
+          </div>
           </div>
       </form>
      </>
