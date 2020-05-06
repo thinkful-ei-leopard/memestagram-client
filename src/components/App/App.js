@@ -10,6 +10,7 @@ import Login from '../../routes/LoginRoute/LoginRoute';
 import AddPost from '../AddPost/AddPost';
 import UserPage from '../UserPage/UserPage';
 import NotFound from '../NotFound/NotFound';
+import UserSetting from '../UserSettings/UserSettings';
 
 import './App.css';
 export default class App extends Component {
@@ -24,6 +25,7 @@ export default class App extends Component {
           <PublicOnlyRoute path='/register' component={SignUp}/>
           <PrivateRoute path='/addPost'component={AddPost}/>
           <PrivateRoute path='/users/:userId' component={UserPage} />
+          <PrivateRoute pathh='/user-setting' component={UserSetting} />
           <Route component={NotFound}/>
         </Switch>
       </main>
