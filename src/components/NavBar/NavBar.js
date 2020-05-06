@@ -57,23 +57,24 @@ export default class NavBar extends React.Component {
         <nav>
           <h1 className='home-link'>
             {TokenService.hasAuthToken()
-              ? <Link to='/dashboard'> MEMESTAGRAM </Link>
-              : <Link to='/'> MEMESTAGRAM </Link>
+              ? <Link to='/dashboard'>  Memestagram </Link>
+              : <Link to='/'> Memestagram </Link>
             }
           </h1>
-
-          {TokenService.hasAuthToken()
-            ? <Link to={`/users/${this.context.user.id}`} onClick={this.handleUsernameClick}> <div className='image-cropper'> <img src={this.context.user.userImg} alt='user' className='nav-bar-user-image'></img> </div> </Link>
-            : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
-          }
+          
+        <div className='end'>
+        <Link to='/addPost'>Add Post</Link>
 
           {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()
           }
 
-          
-          <Link to='/addPost'>Add Post</Link>
+          {TokenService.hasAuthToken()
+            ? <Link to={`/users/${this.context.user.id}`} onClick={this.handleUsernameClick}> <div className='image-cropper'> <img src={this.context.user.userImg} alt='user' className='nav-bar-user-image'></img> </div> </Link>
+            : <Link to='/login'> <div className='nav-bar-no-image'></div> </Link>
+          }
+          </div>
         </nav>
       </header>
     )
