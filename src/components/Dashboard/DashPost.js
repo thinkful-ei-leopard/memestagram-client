@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
+import './Dashboard.css'
 
 export default class DashPost extends Component {
 
