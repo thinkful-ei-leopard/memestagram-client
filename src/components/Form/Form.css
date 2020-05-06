@@ -1,12 +1,40 @@
 form{
-    border: 3px solid ;
-    max-width: 500px;
+    border: 2px solid ;
+    max-width: 90%;
     margin-left: auto;
     margin-right:auto;
-    padding: 20px;
+    padding: 18px;
 }
 
 input{
     font-family: 'Montserrat', sans-serif;
     margin: 10px;
+    background-color: #042f4b;
+    color:#fff6da;
+    border-style: none none solid none;
+}
+::placeholder {
+    color:#fff6da;
+}
+
+@media screen and (min-width: 500px){
+    form{
+        border: 3px solid ;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right:auto;
+        padding: 20px;
+    }
+    
+    input{
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 350px){
+    input{
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+    }
 }

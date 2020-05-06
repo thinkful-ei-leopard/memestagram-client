@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SignUp from '../../components/SignUp/SignUp'
 
+
 class SignUpRoute extends Component {
     static defaultProps = {
       history: {
@@ -16,9 +17,7 @@ class SignUpRoute extends Component {
     render() {
       return (
         <section className='login-signup-form'>
-          <p>
-            Memestagram
-          </p>
+         <h1 className='appname'>Memestagram</h1>
           <h2>Sign up</h2>
           <SignUp
             onSignUpSuccess={this.handleSignUpSuccess}

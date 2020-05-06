@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import {Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../../Utils/PrivateRoute';
 import PublicOnlyRoute from '../../Utils/PublicOnlyRoute';
 import Landing from '../Landing/Landing';
 import DashboardPage from '../Dashboard/DashboardPage';
 import PhotoView from '../PhotoView/PhotoView';
-import SignUp from '../SignUp/SignUp';
+import SignUp from '../../routes/SignUpRoute/SignUpRoute';
 import Login from '../../routes/LoginRoute/LoginRoute';
 import AddPost from '../AddPost/AddPost';
-import UserPage from '../UserPage/UserPage'
+import UserPage from '../UserPage/UserPage';
+import NotFound from '../NotFound/NotFound';
 
 import './App.css';
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
           <PublicOnlyRoute path='/register' component={SignUp}/>
           <PrivateRoute path='/addPost'component={AddPost}/>
           <PrivateRoute path='/users/:userId' component={UserPage} />
+          <Route component={NotFound}/>
         </Switch>
       </main>
     )

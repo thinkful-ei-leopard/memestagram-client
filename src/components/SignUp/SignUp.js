@@ -7,7 +7,6 @@ import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
 import Buttons from '../Image-Upload/Upload-Button'
 
-
 import './SignUp.css'
 
 export default class SignUp extends Component { 
@@ -112,17 +111,13 @@ firstInput = React.createRef()
     render() {
        const { error } = this.state
         return (
-
-
-        <>
-          <h1>Register</h1>
-          <header><Link to='/'><p>{'< Back'}</p></Link></header>
+        <>       
           <form
           className='form'
           onSubmit={this.handleSubmit}
           >
-          <div>
-            <ImageUpload />
+          <div className='upload-image'>
+            {this.renderUerImg()}
           </div>
           <div role='alert'>
             {error && <p>{error}</p>}
@@ -161,11 +156,12 @@ firstInput = React.createRef()
           </div>
           <footer className='form-footer'>
             <Button type='submit' className='form-footer-button'>
-              Sign up
-              
+              Sign up  
             </Button>
-            {' '}
+            <Link to={'/'} className='landbtn'> Cancel </Link>
+            <div >
             <Link to='/login' className='form-footer-link'>Already have an account?</Link>
+            </div>
           </footer>
         </form>
       </>            
