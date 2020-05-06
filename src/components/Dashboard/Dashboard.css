@@ -58,3 +58,10 @@
 .delete-emoji:hover {
   cursor: pointer;
 }
+@media screen and (min-width: 481px){
+  .meme {
+    padding: 0;
+    max-width: 500px;
+    width: 60%;
+  }
+}

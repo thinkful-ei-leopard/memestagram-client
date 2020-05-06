@@ -55,10 +55,10 @@ firstInput = React.createRef()
 
     
 
-    handleSubmit = ev => {
+    handleSubmit=(ev)=>{
         ev.preventDefault()
         const { name, username, password } = ev.target
-        AuthApiService.postUser({
+       AuthApiService.postUser({
             name: name.value,
             username: username.value,
             password: password.value,
@@ -77,8 +77,6 @@ firstInput = React.createRef()
             .catch(res => {
               this.setState({ error: res.error })
             })
-
-            this.props.history.push('/login')
            
         }
       
