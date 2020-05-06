@@ -87,7 +87,7 @@ export default class PhotoView extends Component {
 
     renderDeletePost(post) {
         if(post.user_id === this.context.user.id) {
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(this.state.postId, e)}>🗑️</span> </div>
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => { if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(this.state.postId, e)}}>🗑️</span> </div>
         } else {
             return
         }

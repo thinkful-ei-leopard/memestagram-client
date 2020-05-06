@@ -24,7 +24,7 @@ export default class DashPost extends Component {
 
     renderDelete(post, e){
         if(this.context.user.id === post.user_id){
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(post, e)}>🗑️</span> </div>
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => {  if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(post, e)}}>🗑️</span> </div>
         } else {
             return
         }
