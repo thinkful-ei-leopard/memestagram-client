@@ -1,21 +1,17 @@
-nav {
+.user-posts-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.nav-right {
-  justify-content: flex-end;
-}
-
-.image-cropper {
-  width: 75px;
-  height: 75px;
+.user-posts {
+  width: 200px;
+  height: 200px;
   position: relative;
   overflow: hidden;
-  border-radius: 50%;
 }
 
-.nav-bar-user-image {
+.user-meme {
   display: inline;
   margin: 0 auto;
   margin-left: -25%;

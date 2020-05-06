@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import loginmeme from './image/log.png';
-import regmeme from './image/reg.png';
 import './Landing.css';
 
 export default class Landing extends Component {
     render() {
         return (
         <div>
-            <h1>Memestagram</h1>
+            <h1 className='appname'>Memestagram</h1>
             <div className='title-card'>
                 <div className='introduction'>
                 <p className='slogan'>Where I can share Memes? <span className='meme'>Memestagram!</span></p>
@@ -16,12 +14,12 @@ export default class Landing extends Component {
                 
             <div className='login landbtn'>
             
-                <Link to='/login'><div className='log memes'><img src={loginmeme} alt='login meme'/></div>Login</Link>
+                <Link to='/login'>Login</Link>
 
             </div>
 
             <div className='register landbtn'>
-                <Link to='/register'><div className='reg memes'><img src={regmeme} alt='reg meme'/></div>Register</Link>
+                <Link to='/register'>Register</Link>
             </div>
             </div>
             </div>

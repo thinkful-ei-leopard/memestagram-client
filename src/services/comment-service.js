@@ -2,8 +2,8 @@ import config from '../config'
 import TokenService from './token-service';
 
 const CommentsService = {
-  getComment(){
-    return fetch(`${config.API_ENDPOINT}/comments`, {
+  getComment(postId){
+    return fetch(`${config.API_ENDPOINT}/comments/${postId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -16,15 +16,17 @@ const CommentsService = {
         : res.json()
       )
   },
-   postComment(comment) {
-      return fetch(`${config.API_ENDPOINT}/comments`, {
+   postComment(comment, postId, userId) {
+      return fetch(`${config.API_ENDPOINT}/comments/${postId}`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
           'authorization': `bearer ${TokenService.getAuthToken()}`
         },
         body:JSON.stringify(
-          comment
+         { comment,
+          user_id:userId,
+          posts_id:postId}
         ),
       })
         .then(res =>
