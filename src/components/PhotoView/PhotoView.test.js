@@ -48,20 +48,3 @@ describe('PhotoView Page Component', () => {
   })
 
 })
-
-export function renderWithRouterMatch(
-  ui,
-  {
-    path = "/",
-    route = "/",
-    history = createMemoryHistory({ initialEntries: [route] })
-  } = {}
-) {
-  return {
-    ...render(
-      <Router history={history}>
-        <Route path={path} component={ui} />
-      </Router>
-    )
-  };
-}

@@ -23,7 +23,9 @@ export default class PhotoView extends Component {
         error: null,
         singlePost: '',
         comments: [],
-        newComment: null
+        newComment: null,
+        likes: 0,
+        heart: '🤍'
     }
 
     static contextType = MemeContext
@@ -33,7 +35,7 @@ export default class PhotoView extends Component {
     this.setState({postId: Number(postId)})
         this.context.clearError()
         PostsService.getOnePost(postId)
-            .then(res => this.setState({singlePost:res}))
+            .then(res => this.setState({singlePost:res, likes: res.likes}))
             .catch(this.context.setError)
         CommentsService.getComment(postId)
             .then(res => this.setState({comments:res}))
@@ -43,6 +45,25 @@ export default class PhotoView extends Component {
     handleUsernameClick = () => {
         this.props.handleUserView()
     }
+    
+    handleAddLike(post, e) {
+        if(this.state.heart === '🤍'){
+            const incLike = post.likes+1
+            PostsService.addLike(post.id, post.likes + 1)
+                .catch(this.context.setError)
+            this.setState({
+                heart: '❤️',
+                likes: incLike
+            }) 
+        } else if (this.state.heart === '❤️') {
+            PostsService.addLike(post.id, post.likes)
+                .catch(this.context.setError)
+            this.setState({
+                heart: '🤍',
+                likes: post.likes
+            })   
+        }
+       }
 
     async addComment(e){
         e.preventDefault();  
@@ -107,6 +128,8 @@ export default class PhotoView extends Component {
                 </div>
                 <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <h3 className='user_name'>{singlePost.username}</h3> </Link>
                 <p className='user_name'>{singlePost.description}</p> 
+                <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(singlePost, e)} className='heart'>{this.state.heart}</span>
+                    likes: {this.state.likes}
                 <p>Total Comments: {comments.length}</p>
                 <div>{this.renderDeletePost(singlePost)}</div>
                 <div>{this.renderComments()}</div> 
