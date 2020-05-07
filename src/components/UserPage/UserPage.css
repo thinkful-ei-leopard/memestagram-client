@@ -1,12 +1,18 @@
 .user-posts-container {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
 }
 
 .user-posts {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+  border: 2px solid ;
   position: relative;
   overflow: hidden;
 }
@@ -17,4 +23,22 @@
   margin-left: -25%;
   height: 100%;
   width: auto;
+}
+
+.userPage {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+.usersPage > .username {
+  font-size: 20px;
+  font-family:'Changa One', cursive;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 491px){
+  .user-posts {
+    width: 250px;
+    height: 250px;
+  }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import MemeContext from '../../context/MemeContext'
 import PostsService from '../../services/posts-service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Dashboard.css'
 
 export default class DashPost extends Component {
@@ -24,7 +25,7 @@ export default class DashPost extends Component {
 
     renderDelete(post, e){
         if(this.context.user.id === post.user_id){
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(post, e)}>🗑️</span> </div>
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => this.handleDelete(post, e)}><FontAwesomeIcon icon='trash-alt' /></span> </div>
         } else {
             return
         }
@@ -81,10 +82,12 @@ export default class DashPost extends Component {
                     <img src={post.memeImg} alt='meme' className='meme'  onClick={(e) => this.handleClicked(e)}></img>
                 </Link>
                 <div className='post-content'>
-                    <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(post, e)} className='heart'>{this.state.heart}</span>
-                    likes: {this.state.likes}
+                    <div className='unique'>
+                    <span role='img' aria-label='heart' className='heart' onClick={(e) =>this.handleAddLike(post, e)} >{this.state.heart}
+                    likes: {this.state.likes}</span>
                     <span> comments: 123</span>
-                    <div className='delete-container' >{this.renderDelete(post)}</div>
+                    <span className='delete-container' >{this.renderDelete(post)}</span>
+                    </div>
                     <div className='description-contianer'>
                         <Link to={`/users/${post.user_id}`} onClick={this.handleUsernameClick}> 
                             <p className='username'>{post.username}</p> 
@@ -92,7 +95,8 @@ export default class DashPost extends Component {
                         <p className='description'>{post.description}</p> 
                     </div>
                 </div>
-                <Link to={`/posts/${post.id}`}>Comment</Link>
+                
+                <Link to={`/posts/${post.id}`} className='toComment'>Comment</Link>
             </div>
         ) 
     }

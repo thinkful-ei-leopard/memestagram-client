@@ -34,10 +34,11 @@ header{
 }
 
 .home-link a{
-  margin-left: 20px;
+  
+  margin-top: 10px;
   font-size: 25px;
   font-weight: lighter;
-  color:#fff6da;
+  color:#fbc99d;;
   font-family:'Shrikhand', cursive;
 }
 
@@ -45,6 +46,7 @@ header{
   .home-link a{
     float: left;
     font-size: 30px;
+    margin-left: 20px;
   }
   .image-cropper {
     width: 60px;
@@ -54,6 +56,7 @@ header{
 @media screen and (min-width: 500px){
   .home-link a{
     float: left;
+    margin-left: 20px;
   }
   .image-cropper {
     width: 60px;
