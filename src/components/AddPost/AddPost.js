@@ -92,7 +92,6 @@ async addPosts(event){
             <div className='buttons'>
               {content()}
             </div>
-            <p>{this.state.memeImg}</p>
           </div>
         )
       }

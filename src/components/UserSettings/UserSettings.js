@@ -29,7 +29,7 @@ export default class UserSetting extends Component {
                 <Navbar />
               <form onSubmit={this.handleSubmit}> 
               <h3>Change Name</h3>
-      <input value={this.props.input} onChange={this.handleChange}></input>
+              <input value={this.props.input} onChange={this.handleChange}></input>
                 <button type='submit'>Update!</button>
               </form>
             <h4>New Name: {this.state.submit}</h4>    

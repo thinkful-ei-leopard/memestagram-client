@@ -28,17 +28,15 @@
     background-color: white;
     color:#042f4b;
 }
-.single{
-   float: left;
-   margin: 10px;
-}
 .user_name{
     display: inline-block;
     font-weight: normal;
-    color:#042f4b;
-       
+    color:#042f4b;     
 }
-
+.single{
+    float: left;
+    margin: 10px;
+ }
 .user_name:hover{
     color:#ed1250 ;
 }
@@ -53,8 +51,19 @@
 .delete:hover{
     color:#ed1250 ;
 }
+
+.delete{
+   float: right;
+}
+.before{
+  margin-right: 5px;
+}
 .user{
     margin-right: 10px;
+}
+
+.heart{
+    display: inline-block;
 }
 
 .comments{
@@ -67,6 +76,7 @@
 }
 .comment{
     margin-top: 0;
+    
 }
 .comment > a:hover{
     color:#ed1250;
@@ -80,17 +90,16 @@
     margin-right: 6px;
 }
 .total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-weight: bold;
 }
 
 .content{
    padding:5px ;
 }
-@media screen and (min-width: 491px){
-    .user_name{
-        display: inline-block;
-        margin-left: -50px;   
-    }
+@media screen and (min-width: 481px){
     .photoview{
         margin: 10px;
         float: right;
@@ -99,5 +108,11 @@
     .content{
         padding:10px ;
      }
+     
+     .before{
+        margin-left: -80px;
+    }
+    
 }
+
 

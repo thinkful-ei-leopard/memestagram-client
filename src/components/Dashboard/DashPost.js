@@ -26,8 +26,7 @@ export default class DashPost extends Component {
     renderDelete(post, e){
         if(this.context.user.id === post.user_id){
 
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => {  if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(post, e)}}><FontAwesomeIcon icon='trash-alt' /></span> </div>
-
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => {  if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(post, e)}}><FontAwesomeIcon icon='trash-alt' size='lg'/></span> </div>
         } else {
             return
         }
@@ -87,7 +86,6 @@ export default class DashPost extends Component {
                     <div className='unique'>
                     <span role='img' aria-label='heart' className='heart' onClick={(e) =>this.handleAddLike(post, e)} >{this.state.heart}
                     likes: {this.state.likes}</span>
-                    <span> comments: 123</span>
                     <span className='delete-container' >{this.renderDelete(post)}</span>
                     </div>
                     <div className='description-contianer'>

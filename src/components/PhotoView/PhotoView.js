@@ -109,7 +109,7 @@ export default class PhotoView extends Component {
     renderDeletePost(post) {
         if(post.user_id === this.context.user.id) {
 
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => { if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(this.state.postId, e)}}><FontAwesomeIcon icon='trash-alt' /></span> </div>
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => { if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(this.state.postId, e)}}><FontAwesomeIcon icon='trash-alt' size='lg'/></span> </div>
 
         } else {
             return
@@ -126,17 +126,22 @@ export default class PhotoView extends Component {
                 
                     <img src={singlePost.memeImg} alt='meme' className='meme' />
                 <div className='content'>
+                <span>{this.renderDeletePost(singlePost)}</span>
                 <div className='image-cropper single'>
                 
                 <img src={singlePost.userImg} alt='meme' className='user-img' />
                 </div>
-
-                <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <h3 className='user_name'>{singlePost.username}</h3> </Link>
-                <p className='user_name'>{singlePost.description}</p> 
-                <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(singlePost, e)} className='heart'>{this.state.heart}</span>
-                    likes: {this.state.likes}
-                <p>Total Comments: {comments.length}</p>
-                <div>{this.renderDeletePost(singlePost)}</div>
+                <div className='user_name'>
+                <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <p className='user_name before'>{singlePost.username}</p> </Link>
+                <span >{singlePost.description}</span> 
+                </div>
+                
+                <div  className='total'>
+                <p role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(singlePost, e)} className='heart'>{this.state.heart}<span> likes: {this.state.likes}</span></p>
+                   
+                <span>Total Comments: {comments.length}</span>
+                </div>
+                
 
                 <div>{this.renderComments()}</div> 
                 <form className='postComment' onSubmit={(e)=>this.addComment(e)}>

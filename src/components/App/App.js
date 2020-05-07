@@ -25,7 +25,7 @@ export default class App extends Component {
           <PublicOnlyRoute path='/register' component={SignUp}/>
           <PrivateRoute path='/addPost'component={AddPost}/>
           <PrivateRoute path='/users/:userId' component={UserPage} />
-          <PrivateRoute pathh='/user-setting' component={UserSetting} />
+          <PrivateRoute path='/setting' component={UserSetting} />
           <Route component={NotFound}/>
         </Switch>
       </main>

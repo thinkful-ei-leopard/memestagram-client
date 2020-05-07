@@ -57,12 +57,12 @@ class Login extends Component{
           <p>{error}</p>
 
           <div className='login-input'>
-            <Label htmlFor='username'><FontAwesomeIcon icon='user' /></Label>
+            <Label htmlFor='username' aria-label='name'><FontAwesomeIcon icon='user' /></Label>
             <Input ref={this.firstInput} id='username' name='username' placeholder='Username'required />
 
           </div>
           <div className='login-input'>
-            <Label htmlFor='password'><FontAwesomeIcon icon='lock' /></Label>
+            <Label htmlFor='password'aria-label='password'><FontAwesomeIcon icon='lock' /></Label>
             <Input id='password' name='password' type='password' placeholder='Password' required/>
           </div>
           <div className='login-input'>
