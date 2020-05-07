@@ -1,7 +1,9 @@
 #newComment{
-    width: 230px;
+    width: 100%;
+    margin-left: 0px;
     height: 40px;
     padding-right: 70px;
+    padding-left: 5px;
 }
 #post{
     margin-left: -70px;
@@ -12,6 +14,7 @@
     border: none;
     margin-right: 0;
     width: 50px;
+    border-radius: 0%;
 }
 #post:hover {  
     color:#ed1250;   
@@ -22,17 +25,79 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+    background-color: white;
+    color:#042f4b;
 }
 .single{
-   display: inline-block;
-  
-   
+   float: left;
+   margin: 10px;
 }
 .user_name{
     display: inline-block;
-    margin-left: 20px;
+    font-weight: normal;
+    color:#042f4b;
+       
+}
+
+.user_name:hover{
+    color:#ed1250 ;
+}
+.des{
+    font-size: 16px;
+    margin-left: 10px; 
+}
+.photoview{
+    margin-left: 10px;
+    float: right;
+}
+.delete:hover{
+    color:#ed1250 ;
 }
 .user{
-    font-weight: bold;
     margin-right: 10px;
 }
+
+.comments{
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+.comment > a{
+    color:#042f4b;
+}
+.comment{
+    margin-top: 0;
+}
+.comment > a:hover{
+    color:#ed1250;
+}
+
+.postComment{
+    border: none;
+    padding: 18px;
+}
+.commentdiv{
+    margin-right: 6px;
+}
+.total{
+    font-weight: bold;
+}
+
+.content{
+   padding:5px ;
+}
+@media screen and (min-width: 491px){
+    .user_name{
+        display: inline-block;
+        margin-left: -50px;   
+    }
+    .photoview{
+        margin: 10px;
+        float: right;
+        font-size: 16px;
+    }
+    .content{
+        padding:10px ;
+     }
+}
+
