@@ -1,16 +1,21 @@
-nav {
+
+.end{
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  align-items: center;
 }
 
-.nav-right {
-  justify-content: flex-end;
+.end a{
+  margin:0 10px;
+  
 }
 
 .image-cropper {
-  width: 75px;
-  height: 75px;
-  position: relative;
+  width: 50px;
+  height: 50px;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -22,3 +27,40 @@ nav {
   height: 100%;
   width: auto;
 }
+
+header{
+  border-bottom: 1px solid ;
+  margin-bottom: 30px;
+}
+
+.home-link a{
+  
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: lighter;
+  color:#fbc99d;;
+  font-family:'Shrikhand', cursive;
+}
+
+@media screen and (min-width: 850px){
+  .home-link a{
+    float: left;
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  .image-cropper {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 500px){
+  .home-link a{
+    float: left;
+    margin-left: 20px;
+  }
+  .image-cropper {
+    width: 60px;
+    height: 60px;
+  }
+}
+

@@ -43,8 +43,8 @@ export default class UserPage extends React.Component {
       return <p>Loading...</p>
     } else {
       return (
-        <div>
-          <div className='image-cropper'>
+        <div className='usersPage' key={posts[0].id}>
+          <div className='image-cropper userPage'>
             <img src={posts[0].userImg} alt='user' className='user-img'></img>
           </div>
             <p className='username'>{posts[0].username}</p>
@@ -59,14 +59,14 @@ export default class UserPage extends React.Component {
     const postsArr = []
     if(!Array.isArray(posts) || !posts.length) {
       postsArr.push(
-        <div className='no-posts'>
+        <div className='no-posts' key='0'>
           <h2 className='no-posts-message'>No memes yet!</h2>
         </div>
         )
     } else {
       for(let i = 0; i < posts.length; i++) {
         postsArr.push(
-          <div className='user-posts'>  
+          <div className='user-posts' key={posts[i].id}>  
             <Link to={`/posts/${posts[i].id}`}>
               <img src={posts[i].memeImg} alt='meme' className='user-meme'></img>
             </Link>

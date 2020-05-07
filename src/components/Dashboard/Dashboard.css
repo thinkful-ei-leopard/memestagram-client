@@ -1,15 +1,12 @@
-.posts {
-  background-color: white;
-  color: #042f4b;
-  margin: 5%;
-}
 
-.image-cropper {
-  width: 75px;
-  height: 75px;
+.upper-container > .image-cropper {
+  width: 50px;
+  height: 50px;
   position: relative;
   overflow: hidden;
+  margin-right: 10px;
   border-radius: 50%;
+  
 }
 
 .user-img {
@@ -18,20 +15,18 @@
   margin-left: -25%;
   height: 100%;
   width: auto;
+  
 }
 
 .upper-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.upper-container > .username {
-  margin-left: 20px;
+  padding: 10px;
 }
 
 .username {
-  font-weight: bold;
+  margin: 0 10px;
 }
 
 .heart:hover {
@@ -42,6 +37,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .description-contianer > .username {
@@ -58,10 +54,55 @@
 .delete-emoji:hover {
   cursor: pointer;
 }
-@media screen and (min-width: 481px){
-  .meme {
-    padding: 0;
-    max-width: 500px;
+
+.post {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+  color: #042f4b;
+  background-color: white;
+}
+
+
+.post  a{
+  color: #042f4b;
+}
+.post  a:hover{
+  color: #ed1250;
+}
+
+.toComment{
+  border: 2px solid;
+  padding: 3px;
+}
+
+.unique{
+   margin: 10px;
+   display: flex;
+   font-weight:bold ;
+   justify-content: space-between;
+}
+@media screen and (min-width: 851px){
+  .post {
     width: 60%;
+    max-width: 700px;
+    margin-bottom: 60px;
   }
+}
+@media screen and (min-width: 481px){
+  .upper-container > .image-cropper {
+    width: 60px;
+    height: 60px;
+  }
+  .post {
+    width: 80%;
+    margin-bottom: 50px;
+  }
+  .upper-container > .image-cropper {
+    width: 65px;
+    height: 65px;
+  }
+  
 }

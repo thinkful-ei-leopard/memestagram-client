@@ -7,7 +7,7 @@ import MemeContext from '../../context/MemeContext';
 import { Input, Label } from '../Form/Form';
 import Button from '../Button/Button';
 import Comments from './Comments';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './PhotoView.css';
 export default class PhotoView extends Component {
     
@@ -108,7 +108,9 @@ export default class PhotoView extends Component {
 
     renderDeletePost(post) {
         if(post.user_id === this.context.user.id) {
-            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => { if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(this.state.postId, e)}}>🗑️</span> </div>
+
+            return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => { if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(this.state.postId, e)}}><FontAwesomeIcon icon='trash-alt' /></span> </div>
+
         } else {
             return
         }
@@ -121,25 +123,31 @@ export default class PhotoView extends Component {
             <div>
                 <NavBar />
                 <div className='memePost'>
+                
                     <img src={singlePost.memeImg} alt='meme' className='meme' />
-                </div>
+                <div className='content'>
                 <div className='image-cropper single'>
+                
                 <img src={singlePost.userImg} alt='meme' className='user-img' />
                 </div>
+
                 <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <h3 className='user_name'>{singlePost.username}</h3> </Link>
                 <p className='user_name'>{singlePost.description}</p> 
                 <span role='img' aria-label='heart' onClick={(e) =>this.handleAddLike(singlePost, e)} className='heart'>{this.state.heart}</span>
                     likes: {this.state.likes}
                 <p>Total Comments: {comments.length}</p>
                 <div>{this.renderDeletePost(singlePost)}</div>
+
                 <div>{this.renderComments()}</div> 
-                <form onSubmit={(e)=>this.addComment(e)}>
-                <div className='postComment'>
-                <Label htmlFor='newComment'></Label>
+                <form className='postComment' onSubmit={(e)=>this.addComment(e)}>
+                <div className='commentdiv'>
+                <Label htmlFor='newComment' aria-label='add Comment'></Label>
                 <Input type='text' name='newComment' id='newComment' placeholder=' Add comment ...' required></Input>
                 <Button type='submit' id='post' >Post</Button>
                 </div> 
-                </form>           
+                </form> 
+                </div> 
+                </div>         
             </div>
         )
     }
