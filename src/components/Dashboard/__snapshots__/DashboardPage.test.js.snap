@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Page Component renders Dashboard and post 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <DashboardPage>
+    <DashPost
+      handlePhotoView={[Function]}
+      handleUserView={[Function]}
+      key="1"
+      post={
+        Object {
+          "description": "test",
+          "id": 1,
+          "memeImg": "https://live.staticflickr.com/5611/15033991623_66352974b6_z.jpg",
+          "userImg": "https://i.insider.com/5c59e77ceb3ce80d46564023?width=600&format=jpeg&auto=webp",
+          "user_id": 1,
+          "username": "Shrek",
+        }
+      }
+    />
+  </DashboardPage>
+</Router>
+`;
