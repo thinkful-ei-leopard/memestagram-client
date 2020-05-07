@@ -85,7 +85,7 @@ export default class DashPost extends Component {
                     <div className='unique'>
                     <span role='img' aria-label='heart' className='heart' onClick={(e) =>this.handleAddLike(post, e)} >{this.state.heart}
                     likes: {this.state.likes}</span>
-                    <span> comments: 123</span>
+                    <span> comments:{comments.length}</span>
                     <span className='delete-container' >{this.renderDelete(post)}</span>
                     </div>
                     <div className='description-contianer'>
