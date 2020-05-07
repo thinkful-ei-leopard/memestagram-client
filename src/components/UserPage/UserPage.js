@@ -83,6 +83,7 @@ render() {
     <div>
       <NavBar/>
       {this.renderUserInfo()}
+      <p>Total Posts: {this.state.posts.length}</p>
       <div className='user-posts-container'>
         {this.renderPosts()}
       </div>
