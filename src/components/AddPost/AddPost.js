@@ -104,7 +104,7 @@ async addPosts(event){
                 <p className='upload'>Upload your Memes</p>
                 {this.renderMeme()}
                 <Label htmlFor='description' >Description</Label><br></br>
-                <textarea placeholder='Describe more about Memes ...' type='text' id='description'  name='description'></textarea>
+                <textarea placeholder='Describe more about Memes ... (no more than 150 characters)' type='text' id='description'  name='description' maxlength = "150"></textarea>
                 <Button type='submit'>Submit</Button>
                 </form>
             </div>

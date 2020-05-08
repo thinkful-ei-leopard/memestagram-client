@@ -31,13 +31,22 @@
 .user_name{
     display: inline-block;
     font-weight: normal;
+    margin-right: 15px;
     color:#042f4b;     
 }
-.single{
-    float: left;
+
+.namedes{
+  text-align: left;
+}
+
+.first{
+    display: flex;
+    justify-content: space-between;
+}
+.first > .delete{
     margin: 10px;
- }
-.user_name:hover{
+}
+.before:hover{
     color:#ed1250 ;
 }
 .des{
@@ -52,9 +61,6 @@
     color:#ed1250 ;
 }
 
-.delete{
-   float: right;
-}
 .before{
   margin-right: 5px;
 }
@@ -97,7 +103,7 @@
 }
 
 .content{
-   padding:5px ;
+   padding:10px ;
 }
 @media screen and (min-width: 481px){
     .photoview{
@@ -105,14 +111,11 @@
         float: right;
         font-size: 16px;
     }
-    .content{
-        padding:10px ;
-     }
-     
-     .before{
-        margin-left: -80px;
-    }
     
 }
 
-
+@media screen and (max-width: 365px){
+  .content >.delete{
+      margin-top:15px ;
+  }
+}

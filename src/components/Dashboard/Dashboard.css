@@ -26,7 +26,7 @@
 }
 
 .username {
-  margin: 0 10px;
+  margin: 0 15px 0 10px;
 }
 
 .heart:hover {
@@ -85,7 +85,10 @@
    justify-content: space-between;
 }
 
-
+.description{
+  padding-right: 10px;
+  text-align: justify;
+}
 @media screen and (min-width: 851px){
   .post {
     width: 60%;
@@ -107,4 +110,10 @@
     height: 65px;
   }
   
+}
+
+@media screen and (max-width: 390px){
+ .delete-container{
+   margin-top: -10px;
+ }
 }
