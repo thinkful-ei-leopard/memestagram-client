@@ -40,10 +40,12 @@ export default class DashboardPage extends Component {
         return (
             <div>
                 <NavBar />
+                <div className='cover'>
                 {error
                     ? <p>There was an error, please try again</p>
                     : this.renderPosts()
                 }
+                </div>
             </div>
         )
     }

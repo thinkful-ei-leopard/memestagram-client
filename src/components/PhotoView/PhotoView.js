@@ -125,14 +125,16 @@ export default class PhotoView extends Component {
                 <div className='memePost'>
                 
                     <img src={singlePost.memeImg} alt='meme' className='meme' />
-                <div className='content'>
-                <span>{this.renderDeletePost(singlePost)}</span>
-                <div className='image-cropper single'>
                 
+                <div className='content'>
+                <div className='first'>
+                <div className='image-cropper single'>
                 <img src={singlePost.userImg} alt='meme' className='user-img' />
                 </div>
-                <div className='user_name'>
-                <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <p className='user_name before'>{singlePost.username}</p> </Link>
+                <span>{this.renderDeletePost(singlePost)}</span>
+                </div>
+                <div className='namedes'>
+                <Link to={`/users/${this.state.singlePost.user_id}`} onClick={this.handleUsernameClick}> <p className='user_name'>{singlePost.username}</p> </Link>
                 <span >{singlePost.description}</span> 
                 </div>
                 
