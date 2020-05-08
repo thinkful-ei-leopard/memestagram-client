@@ -6,7 +6,7 @@ import Button from '../Button/Button'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
 import Buttons from '../Image-Upload/Upload-Button'
-import config from '../config'
+import config from '../../config'
 
 import './SignUp.css'
 
