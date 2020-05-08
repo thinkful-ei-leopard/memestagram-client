@@ -6,6 +6,7 @@ import Button from '../Button/Button'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
 import Buttons from '../Image-Upload/Upload-Button'
+import config from '../config'
 
 import './SignUp.css'
 
@@ -32,7 +33,7 @@ firstInput = React.createRef()
         formData.append(i, file)
       })
   
-      fetch(`http://localhost:8000/api/image-upload`, {
+      fetch(`${config.API_ENDPOINT}/image-upload`, {
         method: 'POST',
         body: formData
       })
