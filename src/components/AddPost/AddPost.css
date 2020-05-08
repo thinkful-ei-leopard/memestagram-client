@@ -17,3 +17,13 @@ textarea{
     font-weight: bold;
     font-size: 18px;
 }
+
+.addpost{
+    margin-top: 150px;
+}
+
+@media screen and (min-width: 481px){
+    .addpost{
+        margin-top: 100px;
+    }
+}

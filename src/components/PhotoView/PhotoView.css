@@ -21,6 +21,7 @@
 }
 
 .memePost{
+    margin-top: 150px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -110,6 +111,9 @@
         margin: 10px;
         float: right;
         font-size: 16px;
+    }
+    .memePost{
+        margin-top: 100px;
     }
     
 }

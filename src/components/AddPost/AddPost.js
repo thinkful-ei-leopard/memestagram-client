@@ -100,6 +100,7 @@ async addPosts(event){
         return (
             <div>
                 <NavBar/>
+                <div className='addpost'>
                 <form onSubmit={(e)=>this.addPosts(e)}>
                 <p className='upload'>Upload your Memes</p>
                 {this.renderMeme()}
@@ -107,6 +108,7 @@ async addPosts(event){
                 <textarea placeholder='Describe more about Memes ... (no more than 150 characters)' type='text' id='description'  name='description' maxlength = "150"></textarea>
                 <Button type='submit'>Submit</Button>
                 </form>
+                </div>
             </div>
         )
     }
