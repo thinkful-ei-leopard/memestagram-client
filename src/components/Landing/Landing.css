@@ -28,7 +28,7 @@ a {
 }
 
 .title-card{
-    height: 500px;
+    height: 700px;
     padding-top: 60px;
     background-image: url("/meme.png");
 }
@@ -49,6 +49,10 @@ a {
 
 .meme{
     padding-left: 5px;
+}
+
+.instruction{
+    text-align: left;
 }
 
 .appname{
