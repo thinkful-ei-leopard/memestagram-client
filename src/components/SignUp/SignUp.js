@@ -33,13 +33,12 @@ firstInput = React.createRef()
         formData.append(i, file)
       })
   
-      fetch(`${config.API_ENDPOINT}/image-upload`, {
+      fetch(`https://pacific-beach-23085.herokuapp.com/api/image-upload`, {
         method: 'POST',
         body: formData
       })
       .then(res => res.json())
       .then(images => {
-        console.log(images)
         this.setState({ 
           uploading: false,
           images,
