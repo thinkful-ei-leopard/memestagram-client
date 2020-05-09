@@ -53,7 +53,7 @@ async addPosts(event){
           formData.append(i, file)
         })
     
-        fetch(`http://localhost:8000/api/meme-upload`, {
+        fetch(`https://pacific-beach-23085.herokuapp.com/api/meme-upload`, {
           method: 'POST',
           body: formData
         })
