@@ -38,7 +38,6 @@ firstInput = React.createRef()
       })
       .then(res => res.json())
       .then(images => {
-        console.log(images)
         this.setState({ 
           uploading: false,
           images,
@@ -71,7 +70,6 @@ firstInput = React.createRef()
               this.setState({
                 userImg:null
               })
-              console.log(user)
               this.props.onSignUpSuccess()
             })
             .catch(res => {
