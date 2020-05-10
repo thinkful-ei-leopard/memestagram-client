@@ -27,17 +27,29 @@ https://pacific-beach-23085.herokuapp.com/
 
 Users will login:
 
+![1](https://user-images.githubusercontent.com/47201201/81482894-14c6b700-91ef-11ea-927f-2a7d5bb6380e.png)
+
 or Sign up:
+
+![2](https://user-images.githubusercontent.com/47201201/81482880-05e00480-91ef-11ea-8c3d-0c5104fb75e0.png)
 
 After Logging in, Users can see the dashboard:
 
+![3](https://user-images.githubusercontent.com/47201201/81482901-21e3a600-91ef-11ea-9c98-d7bb8351f15f.png)
+
 Users can click on an image or the comment button to see the individual post and comment:
+
+![4](https://user-images.githubusercontent.com/47201201/81482942-55263500-91ef-11ea-8a9d-e917b6e4ba71.png)
 
 Users can click on usernames to see the user's posts only:
 
+![5](https://user-images.githubusercontent.com/47201201/81483076-4724e400-91f0-11ea-8dee-f4bc50cbff5e.png)
+
 Users can add a post by clicking on the add a post button in the navigation bar:
 
-Users can like a post from the dashboard page or the individual post page:
+![6](https://user-images.githubusercontent.com/47201201/81482954-6c652280-91ef-11ea-846d-e26fdfbe6179.png)
+
+Users can like a post from the dashboard page or the individual post page!
 
 ### Technology used
 
