@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Memestagram
 
-## Available Scripts
+Memes are one of the greatest symbols of social media. They’re edgy. They’re funny. They’re easy to iterate on, and every week, a new one pops up. But despite their popularity, it seems like there is no place for us to share or collect them. Memestagram is here for you! It’s a meme only platform. Whether you want to share the meme that you create or look for some interesting memes. Just join us!
 
-In the project directory, you can run:
+## Available at:
 
-### `npm start`
+https://memestagram.now.sh/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Memestgram's API is found at:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+https://github.com/thinkful-ei-leopard/memestagram-api
 
-### `npm test`
+### Server available at:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://pacific-beach-23085.herokuapp.com/
 
-### `npm run build`
+### Authors
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Name | Role | Github Profile |
+| :-------------: |:-------------:|:-------------:|
+| Lillian Burnside | Project Manager | [link](https://github.com/LilyBurnside) |
+| Cesar Hernandez | Product Manager | [link](https://github.com/Poden) |
+| Hsin Ling Hu | UI/UX Lead | [link](https://github.com/hsinlinghu1101) |
+| Christian Shim | QA Lead | [link](https://github.com/shimmy77) |
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### How it works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Users will login:
 
-### `npm run eject`
+![1](https://user-images.githubusercontent.com/47201201/81482894-14c6b700-91ef-11ea-927f-2a7d5bb6380e.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+or Sign up:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![2](https://user-images.githubusercontent.com/47201201/81482880-05e00480-91ef-11ea-8c3d-0c5104fb75e0.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+After Logging in, Users can see the dashboard:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![3](https://user-images.githubusercontent.com/47201201/81482901-21e3a600-91ef-11ea-9c98-d7bb8351f15f.png)
 
-## Learn More
+Users can click on an image or the comment button to see the individual post and comment:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![4](https://user-images.githubusercontent.com/47201201/81482942-55263500-91ef-11ea-8a9d-e917b6e4ba71.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Users can click on usernames to see the user's posts only:
 
-### Code Splitting
+![5](https://user-images.githubusercontent.com/47201201/81483076-4724e400-91f0-11ea-8dee-f4bc50cbff5e.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Users can add a post by clicking on the add a post button in the navigation bar:
 
-### Analyzing the Bundle Size
+![6](https://user-images.githubusercontent.com/47201201/81482954-6c652280-91ef-11ea-846d-e26fdfbe6179.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Users can like a post from the dashboard page or the individual post page!
 
-### Making a Progressive Web App
+### Technology used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Built with React.js, HTML, CSS
 
-### Advanced Configuration
+Images hosted on Cloudinary
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Testing with Jest and Enzyme
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
