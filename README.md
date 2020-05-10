@@ -1,6 +1,6 @@
 # Memestagram
 
-A Meme only social platform for users to post, comment, like, and browse memes
+Memes are one of the greatest symbols of social media. They’re edgy. They’re funny. They’re easy to iterate on, and every week, a new one pops up. But despite their popularity, it seems like there is no place for us to share or collect them. Memestagram is here for you! It’s a meme only platform. Whether you want to share the meme that you create or look for some interesting memes. Just join us!
 
 ## Available at:
 
@@ -41,5 +41,8 @@ Users can like a post from the dashboard page or the individual post page:
 
 ### Technology used
 
+Built with React, HTML, CSS
+Images hosted on Cloudinary
+Testing with Jest and Enzyme
 
 
