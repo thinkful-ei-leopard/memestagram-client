@@ -53,8 +53,10 @@ Users can like a post from the dashboard page or the individual post page!
 
 ### Technology used
 
-Built with React, HTML, CSS
+Built with React.js, HTML, CSS
+
 Images hosted on Cloudinary
+
 Testing with Jest and Enzyme
 
 
