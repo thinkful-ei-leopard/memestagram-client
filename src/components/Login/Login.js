@@ -50,8 +50,6 @@ class Login extends Component{
 
     return (
       <>
-      
-       
         <form className='LoginForm' onSubmit={this.handleSubmit}>
 
           <p>{error}</p>

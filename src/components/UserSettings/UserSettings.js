@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from '../NavBar/NavBar'
 import './UserSettings.css'
 
+//Work in progress as of 5/11/2020
 export default class UserSetting extends Component {
     constructor(props) {
         super(props)

@@ -13,7 +13,7 @@ export default class NavBar extends React.Component {
 
   state = {
     count: 0,
-    user: [],
+    user: []
   }
 
   static contextType = MemeContext

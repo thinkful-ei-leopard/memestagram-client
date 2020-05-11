@@ -8,8 +8,7 @@ import './Dashboard.css'
 export default class DashboardPage extends Component {
     state = {
        posts: [],
-       error: null,
-       
+       error: null
     }
 
     static contextType = MemeContext

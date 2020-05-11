@@ -17,7 +17,6 @@ class LoginRoute extends Component {
     history.push(destination)
   }
 
-  
   render() {
     return (
       <section className='login-title'>
