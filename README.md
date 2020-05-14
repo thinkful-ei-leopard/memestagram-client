@@ -59,4 +59,16 @@ Images hosted on Cloudinary
 
 Testing with Jest and Enzyme
 
+### Landing Page Memes resource
+https://www.newsweek.com/meme-ban-obesity-loughborough-university-teenagers-health-memeotive-social-1176955
+https://www.kqed.org/education/531438/to-meme-or-not-to-meme-using-memes-to-teach-media-literacy-skills
+https://whyy.org/articles/could-memes-be-our-best-weapon-against-internet-bots-del-researchers-want-to-find-out/
+https://www.washingtonpost.com/lifestyle/style/being-bad-luck-brian-when-the-meme-that-made-you-famous-starts-to-fade-away/2015/01/05/07cbf6ac-907c-11e4-a412-4b735edc7175_story.html
+https://www.delicious.com.au/food-files/gallery/27-of-the-funniest-food-memes/rp8qaoht
+https://www.bbc.co.uk/bbcthree/article/e6511d6a-ea8c-4e27-aac3-728205903635
+https://www.lifesize.com/en/video-conferencing-blog/meeting-memes
+https://buddymantra.com/the-trending-memes-of-2020/
+https://interestingengineering.com/10-of-the-funniest-memes-about-engineers-that-will-make-your-sides-split
+https://ligalive.net/en/when-all-football-matches-are-postponed-due-to-covid-19/
+https://www.memesmonkey.com/topic/hire+me
 
