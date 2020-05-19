@@ -50,6 +50,12 @@ header{
 }
 
 
+.icon1{
+  display: none;
+}
+.icon2{
+  display: inline-block;
+}
 @media screen and (min-width: 850px){
   .home-link a{
     font-size: 30px;
@@ -64,6 +70,12 @@ header{
   .nav{
     display: flex;
     flex-direction: column;
+  }
+  .icon1{
+    display:inline-block;
+  }
+  .icon2{
+    display: none;
   }
 }
 

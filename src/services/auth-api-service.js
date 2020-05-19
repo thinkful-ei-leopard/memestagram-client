@@ -1,5 +1,5 @@
 import config from '../config'
-import TokenService from './token-service'
+import TokenService from './token-service';
 
 const AuthApiService = {
   postUser(user) {
@@ -34,7 +34,30 @@ const AuthApiService = {
           ? res.json().then(err => Promise.reject(err))
           : res.json()
       )
+      
   },
+
+  updateUsername(id, newName){
+    return fetch(`${config.API_ENDPOINT}/users/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json, text/plain',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
+        id:id,
+        username:newName
+      })
+    })
+    .then(res => 
+      (!res.ok)
+        ? res.then(e => Promise.reject(e))
+        : res
+    )
+  }
+
+  
 }
 
 export default AuthApiService

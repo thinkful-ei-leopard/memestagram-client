@@ -22,7 +22,7 @@ export default class UserPage extends React.Component {
       .catch(this.context.setError)
   }
 
-  addLike() {
+ /* addLike() {
     if(this.state.like === '🤍'){
      this.setState({
         like: '❤️',
@@ -34,7 +34,7 @@ export default class UserPage extends React.Component {
         count: this.state.count - 1
       })   
     }
-  }
+  }*/
 
   renderUserInfo() {
     const posts = this.state.posts
