@@ -49,6 +49,10 @@ Users can add a post by clicking on the add a post button in the navigation bar:
 
 ![6](https://user-images.githubusercontent.com/47201201/81482954-6c652280-91ef-11ea-846d-e26fdfbe6179.png)
 
+Users can edit their username:
+
+![setting](https://user-images.githubusercontent.com/47201201/82388611-ddc28380-99ee-11ea-9367-5213a790cc6c.png)
+
 Users can like a post from the dashboard page or the individual post page!
 
 ### Technology used
