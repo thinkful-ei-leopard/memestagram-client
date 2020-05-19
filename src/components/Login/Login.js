@@ -67,7 +67,7 @@ class Login extends Component{
           <Button type='submit'> Login </Button>
           <Link to={'/'} className='landbtn'> Cancel </Link>
           <div >
-          <Link to='/register' >Not signed up yet?</Link>
+          <Link to='/register'>Not signed up yet?</Link>
           </div>
           </div>
       </form>

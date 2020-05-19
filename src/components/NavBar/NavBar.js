@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//Auth tokens dont exist yet (4/21 @ 12:45)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TokenService from '../../services/token-service'
 import MemeContext from '../../context/MemeContext'
 import './NavBar.css'
-
+//<FontAwesomeIcon icon='trash-alt' size='lg'/>
 export default class NavBar extends React.Component {
 
   static defaultProps = {
@@ -62,10 +62,12 @@ export default class NavBar extends React.Component {
               : <Link to='/'> Memestagram </Link>
             }
           </h1>
-          
-        <div className='end'>
-        <Link to='/addPost'>Add Post</Link>
 
+
+
+        <div className='end'>
+        <Link to='/addPost'><FontAwesomeIcon icon='plus' size='lg' className='icon1'/><span  className='icon2'>Add Post</span></Link>
+        <Link to='/setting'><FontAwesomeIcon icon='cog' size='lg' className='icon1'/><span  className='icon2'>Edit</span></Link>
           {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()
