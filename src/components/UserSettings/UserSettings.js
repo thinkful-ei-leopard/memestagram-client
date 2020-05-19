@@ -7,6 +7,7 @@ import MemeContext from '../../context/MemeContext';
 import { Link } from 'react-router-dom';
 import './UserSettings.css'
 
+//Work in progress as of 5/11/2020
 export default class UserSetting extends Component {
     constructor(props) {
         super(props)

@@ -7,6 +7,7 @@ import NavBar from '../NavBar/NavBar'
 import './UserPage.css'
 
 export default class UserPage extends React.Component {
+  
   state = {
     posts: [],
     like: '🤍'

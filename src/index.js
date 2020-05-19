@@ -11,7 +11,6 @@ import './index.css';
 library.add(faPlus, faTrashAlt, faUser, faLock, faCog)
 
 ReactDOM.render(
-
   <BrowserRouter>
     <MemeProvider>
       <App />

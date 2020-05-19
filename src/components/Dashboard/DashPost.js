@@ -17,15 +17,13 @@ export default class DashPost extends Component {
         count: 0,
         posts: [],
         heart: '🤍',
-        likes: this.props.post.likes,
-        delete: false
+        likes: this.props.post.likes
     }
 
     static contextType = MemeContext
 
     renderDelete(post, e){
         if(this.context.user.id === post.user_id){
-
             return <div  className='delete'> <span role='img' aria-label='delete' className='delete-emoji' onClick={e => {  if (window.confirm('Are you sure you want to delete this meme?')) this.handleDelete(post, e)}}><FontAwesomeIcon icon='trash-alt' size='lg'/></span> </div>
         } else {
             return
@@ -61,8 +59,10 @@ export default class DashPost extends Component {
 
     async handleDelete(post, e) {
         e.preventDefault()
+
         await PostsService.deletePost(post.id)
             .then(this.setState({delete: true}))
+            
         await window.location.reload(false);
     }
 

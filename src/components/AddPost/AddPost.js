@@ -1,115 +1,117 @@
-import React, { Component } from 'react';
-import {Label} from '../Form/Form';
-import NavBar from '../NavBar/NavBar';
-import Button from '../Button/Button';
-import './AddPost.css';
+import React, { Component } from 'react'
+import {Label} from '../Form/Form'
+import NavBar from '../NavBar/NavBar'
+import Button from '../Button/Button'
 import Buttons from '../Image-Upload/Upload-Button'
 import Spinner from '../Image-Upload/Spinner'
 import Images from '../Image-Upload/Images'
-import PostsService from '../../services/posts-service';
-import MemeContext from '../../context/MemeContext';
+import PostsService from '../../services/posts-service'
+import MemeContext from '../../context/MemeContext'
+import config from '../../config'
+
+import './AddPost.css'
 
 export default class AddPost extends Component {
   
-    state = {
-        uploading: false,
-        memes: [],
-        memeImg:null
-      }
-      static contextType = MemeContext
+  state = {
+    uploading: false,
+    memes: [],
+    memeImg:null
+  }
+
+  static contextType = MemeContext
       
-async addPosts(event){
-     event.preventDefault();
-     const {description}=event.target
+  async addPosts(event){
+    event.preventDefault();
+    
+    const {description}=event.target
+    
     await PostsService.postMeme(
-         description.value, this.state.memeImg, this.context.user.id
-     )
+      description.value, this.state.memeImg, this.context.user.id
+    )
       .then(meme =>{
         this.setState({
-            memeImg:null
+          memeImg:null
         })
         description.value=' '
       })
       .catch(res =>{
         this.setState({
-            error:JSON.stringify(res.error)
+          error:JSON.stringify(res.error)
         })
-    }
-    
-    )
-  await  this.props.history.push('/dashboard')
+    })
 
+    await  this.props.history.push('/dashboard')
   }
 
+  //adds posts image file to cloudinary and recieves url of photo back
+  onChange = e => {
+    const files = Array.from(e.target.files)
+    this.setState({ uploading: true })
+
+    const formData = new FormData()
+
+    files.forEach((file, i) => {
+      formData.append(i, file)
+    })
+
+    fetch(`${config.API_ENDPOINT}/api/meme-upload`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(memes => {
+      this.setState({ 
+        uploading: false,
+        memes,
+        memeImg:memes[0].url
+      })
+    })
+  }
     
-    
-      onChange = e => {
-        const files = Array.from(e.target.files)
-        this.setState({ uploading: true })
-    
-        const formData = new FormData()
-    
-        files.forEach((file, i) => {
-          formData.append(i, file)
-        })
-    
-        fetch(`http://localhost:8000/api/meme-upload`, {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => res.json())
-        .then(memes => {
-          this.setState({ 
-            uploading: false,
-            memes,
-            memeImg:memes[0].url
-          })
-        })
-      }
-    
-      removeImage = id => {
-        this.setState({
-          memes: this.state.memes.filter(image => image.public_id !== id)
-        })
-      }
+  removeImage = id => {
+    this.setState({
+      memes: this.state.memes.filter(image => image.public_id !== id)
+    })
+  }
       
-      renderMeme() {
-        const { uploading, memes } = this.state
-    
-        const content = () => {
-          switch(true) {
-            case uploading:
-              return <Spinner />
-            case memes.length > 0:
-              return <Images images={memes} removeImage={this.removeImage} />
-            default:
-              return <Buttons onChange={this.onChange} />
-          }
-        }
-    
-        return (
-          <div>
-            <div className='buttons'>
-              {content()}
-            </div>
-          </div>
-        )
+  renderMeme() {
+    const { uploading, memes } = this.state
+
+    const content = () => {
+      switch(true) {
+        case uploading:
+          return <Spinner />
+        case memes.length > 0:
+          return <Images images={memes} removeImage={this.removeImage} />
+        default:
+          return <Buttons onChange={this.onChange} />
       }
-    
-    render() {
-        return (
-            <div>
-                <NavBar/>
-                <div className='addpost'>
-                <form onSubmit={(e)=>this.addPosts(e)}>
-                <p className='upload'>Upload your Memes</p>
-                {this.renderMeme()}
-                <Label htmlFor='description' >Description</Label><br></br>
-                <textarea placeholder='Describe more about Memes ... (no more than 150 characters)' type='text' id='description'  name='description' maxLength = "150"></textarea>
-                <Button type='submit'>Submit</Button>
-                </form>
-                </div>
-            </div>
-        )
     }
+
+    return (
+      <div>
+        <div className='buttons'>
+          {content()}
+        </div>
+      </div>
+    )
+  }
+  
+  render() {
+      return (
+          <div>
+              <NavBar/>
+              <div className='addpost'>
+              <form onSubmit={(e)=>this.addPosts(e)}>
+              <p className='upload'>Upload your Memes</p>
+              {this.renderMeme()}
+              <Label htmlFor='description' >Description</Label><br></br>
+              <textarea placeholder='Describe more about Memes ... (no more than 150 characters)' type='text' id='description'  name='description' maxLength = "150"></textarea>
+              <Button type='submit'>Submit</Button>
+              </form>
+              </div>
+          </div>
+      )
+  }
 }
