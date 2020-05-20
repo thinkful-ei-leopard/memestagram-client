@@ -35,21 +35,30 @@ or Sign up:
 
 After Logging in, Users can see the dashboard:
 
-![3](https://user-images.githubusercontent.com/47201201/81482901-21e3a600-91ef-11ea-9c98-d7bb8351f15f.png)
+Users can like a post from the dashboard page or the individual post page!
+
+![dash](https://user-images.githubusercontent.com/47201201/82391536-6264d000-99f6-11ea-8c12-7f9766038d5f.png)
 
 Users can click on an image or the comment button to see the individual post and comment:
 
-![4](https://user-images.githubusercontent.com/47201201/81482942-55263500-91ef-11ea-8a9d-e917b6e4ba71.png)
+![post](https://user-images.githubusercontent.com/47201201/82391499-4e20d300-99f6-11ea-973a-ff9a927637fd.png)
 
 Users can click on usernames to see the user's posts only:
 
-![5](https://user-images.githubusercontent.com/47201201/81483076-4724e400-91f0-11ea-8dee-f4bc50cbff5e.png)
+![user](https://user-images.githubusercontent.com/47201201/82391497-4cefa600-99f6-11ea-8e2e-a62ee7d095ad.png)
 
 Users can add a post by clicking on the add a post button in the navigation bar:
 
-![6](https://user-images.githubusercontent.com/47201201/81482954-6c652280-91ef-11ea-846d-e26fdfbe6179.png)
+![add](https://user-images.githubusercontent.com/47201201/82391513-55e07780-99f6-11ea-8881-e82ca797e746.png)
 
-Users can like a post from the dashboard page or the individual post page!
+Users can edit their username:
+
+![edit](https://user-images.githubusercontent.com/47201201/82391504-51b45a00-99f6-11ea-85c2-0c7da5727d0e.png)
+
+Users can click their profile image on the Navbar to see all of their posts
+
+![own](https://user-images.githubusercontent.com/47201201/82391496-4c570f80-99f6-11ea-89a9-0cdb9d3525a3.png)
+
 
 ### Technology used
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Landing.css';
 
 export default class Landing extends Component {
@@ -31,7 +32,10 @@ export default class Landing extends Component {
           Click a heart to add likes to that post
           </li>
           <li>
-          Click on Add Post to create a new post
+          Click on Add Post (<FontAwesomeIcon icon='plus'/>)  to create a new post
+          </li>
+          <li>
+          Click on Edit (<FontAwesomeIcon icon='cog'/>) to update username
           </li>
           <li>
           Click on the trash can to delete your post
